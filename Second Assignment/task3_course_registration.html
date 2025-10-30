@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Course Registration Form</title>
+</head>
+<body>
+    <!-- Header for the registration form -->
+    <header>
+        <h1>University Course Registration</h1>
+        <p>Register for your courses for the upcoming semester</p>
+    </header>
+
+    <!-- Main content with registration form -->
+    <main>
+        <form>
+            <!-- Personal Information Fieldset -->
+            <fieldset>
+                <legend>Personal Information</legend>
+                
+                <label for="student-name">Full Name:</label>
+                <input type="text" id="student-name" name="student-name" required>
+                <br><br>
+                
+                <label for="student-email">Email Address:</label>
+                <input type="email" id="student-email" name="student-email" required>
+                <br><br>
+                
+                <label for="student-id">Student ID:</label>
+                <input type="text" id="student-id" name="student-id" required>
+                <br><br>
+            </fieldset>
+
+            <br>
+
+            <!-- Course Selection Fieldset -->
+            <fieldset>
+                <legend>Course Selection</legend>
+                
+                <label for="course-select">Select Course:</label>
+                <select id="course-select" name="course-select" required>
+                    <option value="">-- Please choose a course --</option>
+                    <option value="cs101">CS101 - Introduction to Computer Science</option>
+                    <option value="cs201">CS201 - Data Structures and Algorithms</option>
+                    <option value="cs301">CS301 - Database Management Systems</option>
+                    <option value="cs401">CS401 - Software Engineering</option>
+                    <option value="cs501">CS501 - Machine Learning</option>
+                    <option value="math101">MATH101 - Calculus I</option>
+                    <option value="math201">MATH201 - Linear Algebra</option>
+                    <option value="eng101">ENG101 - Technical Writing</option>
+                </select>
+                <br><br>
+
+                <label for="semester">Semester:</label>
+                <select id="semester" name="semester" required>
+                    <option value="">-- Select Semester --</option>
+                    <option value="fall2025">Fall 2025</option>
+                    <option value="spring2026">Spring 2026</option>
+                    <option value="summer2026">Summer 2026</option>
+                </select>
+                <br><br>
+
+                <label for="credit-hours">Preferred Credit Hours:</label>
+                <select id="credit-hours" name="credit-hours">
+                    <option value="3">3 Credit Hours</option>
+                    <option value="4" selected>4 Credit Hours</option>
+                    <option value="5">5 Credit Hours</option>
+                </select>
+                <br><br>
+            </fieldset>
+
+            <br>
+
+            <!-- Additional Information Fieldset -->
+            <fieldset>
+                <legend>Additional Information</legend>
+                
+                <label for="year-level">Academic Year:</label>
+                <select id="year-level" name="year-level">
+                    <option value="freshman">Freshman</option>
+                    <option value="sophomore" selected>Sophomore</option>
+                    <option value="junior">Junior</option>
+                    <option value="senior">Senior</option>
+                </select>
+                <br><br>
+
+                <label for="comments">Special Requirements or Comments:</label><br>
+                <textarea id="comments" name="comments" rows="4" cols="50" placeholder="Enter any special requirements or comments here..."></textarea>
+                <br><br>
+            </fieldset>
+
+            <br>
+
+            <!-- Submit button -->
+            <input type="submit" value="Register for Course">
+            <input type="reset" value="Clear Form">
+        </form>
+
+        <br><hr><br>
+
+        <!-- Course Schedule Information Table -->
+        <h2>Available Course Schedules</h2>
+        <p>Below are the available course schedules for the current semester:</p>
+        
+        <table border="1">
+            <caption>Fall 2025 Course Schedule</caption>
+            
+            <thead>
+                <tr>
+                    <th>Course Code</th>
+                    <th>Course Name</th>
+                    <th>Day</th>
+                    <th>Time</th>
+                    <th>Instructor</th>
+                    <th>Room</th>
+                </tr>
+            </thead>
+            
+            <tbody>
+                <tr>
+                    <td>CS101</td>
+                    <td>Introduction to Computer Science</td>
+                    <td>Monday, Wednesday, Friday</td>
+                    <td>9:00 AM - 10:00 AM</td>
+                    <td>Dr. Sarah Johnson</td>
+                    <td>Room 101</td>
+                </tr>
+                
+                <tr>
+                    <td>CS201</td>
+                    <td>Data Structures and Algorithms</td>
+                    <td>Tuesday, Thursday</td>
+                    <td>11:00 AM - 12:30 PM</td>
+                    <td>Prof. Michael Chen</td>
+                    <td>Room 205</td>
+                </tr>
+                
+                <tr>
+                    <td>CS301</td>
+                    <td>Database Management Systems</td>
+                    <td>Monday, Wednesday</td>
+                    <td>2:00 PM - 3:30 PM</td>
+                    <td>Dr. Emily Rodriguez</td>
+                    <td>Room 301</td>
+                </tr>
+                
+                <tr>
+                    <td>CS401</td>
+                    <td>Software Engineering</td>
+                    <td>Tuesday, Thursday</td>
+                    <td>3:30 PM - 5:00 PM</td>
+                    <td>Prof. David Kim</td>
+                    <td>Room 210</td>
+                </tr>
+                
+                <tr>
+                    <td>CS501</td>
+                    <td>Machine Learning</td>
+                    <td>Monday, Wednesday, Friday</td>
+                    <td>1:00 PM - 2:00 PM</td>
+                    <td>Dr. Lisa Patel</td>
+                    <td>Room 401</td>
+                </tr>
+                
+                <tr>
+                    <td>MATH101</td>
+                    <td>Calculus I</td>
+                    <td>Monday, Wednesday, Friday</td>
+                    <td>10:00 AM - 11:00 AM</td>
+                    <td>Prof. Robert Wilson</td>
+                    <td>Room 150</td>
+                </tr>
+                
+                <tr>
+                    <td>MATH201</td>
+                    <td>Linear Algebra</td>
+                    <td>Tuesday, Thursday</td>
+                    <td>9:00 AM - 10:30 AM</td>
+                    <td>Dr. Anna Thompson</td>
+                    <td>Room 155</td>
+                </tr>
+                
+                <tr>
+                    <td>ENG101</td>
+                    <td>Technical Writing</td>
+                    <td>Wednesday, Friday</td>
+                    <td>3:00 PM - 4:30 PM</td>
+                    <td>Prof. James Miller</td>
+                    <td>Room 75</td>
+                </tr>
+            </tbody>
+            
+            <tfoot>
+                <tr>
+                    <td colspan="6"><small>Note: Schedule is subject to change. Please check with the registrar's office for updates.</small></td>
+                </tr>
+            </tfoot>
+        </table>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 University Course Registration System. For assistance, contact: registrar@university.edu</p>
+    </footer>
+
+</body>
+</html>
