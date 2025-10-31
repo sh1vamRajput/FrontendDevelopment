@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Form - Task 10</title>
+</head>
+<body>
+    <header>
+        <h1>Contact Us</h1>
+        <p>Get in touch with us using the form below</p>
+    </header>
+
+    <main>
+        <form action="#" method="post">
+            <h2>Send us a Message</h2>
+            
+            <!-- Full Name field -->
+            <label for="fullName">Full Name:</label><br>
+            <input type="text" id="fullName" name="fullName" placeholder="Enter your full name" required><br><br>
+            
+            <!-- Email field -->
+            <label for="email">Email:</label><br>
+            <input type="email" id="email" name="email" placeholder="your.email@example.com" required><br><br>
+            
+            <!-- Subject field -->
+            <label for="subject">Subject:</label><br>
+            <input type="text" id="subject" name="subject" placeholder="Brief subject of your message" required><br><br>
+            
+            <!-- Message textarea -->
+            <label for="message">Message:</label><br>
+            <textarea id="message" name="message" rows="6" cols="50" placeholder="Type your detailed message here..." required></textarea><br><br>
+            
+            <!-- Submit button -->
+            <input type="submit" value="Send Message">
+            <input type="reset" value="Clear Form">
+        </form>
+    </main>
+</body>
+</html>
