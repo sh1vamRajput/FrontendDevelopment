@@ -1,0 +1,54 @@
+<!-- 8. Build a Box Model Exploration Page
+Requirements:
+● Visually represent the content, padding, border, and margin layers.
+● Use background colors and outlines to differentiate each layer.
+● Demonstrate the difference between default and box-sizing:
+border-box;.
+● Center the demonstration using Flexbox.
+● Include short descriptive text for each part of the box model. -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CSS Box Model Exploration</title>
+  <link rel="stylesheet" href="8.css">
+</head>
+<body>
+  <header>
+    <h1>CSS Box Model Exploration</h1>
+    <p>Understand how content, padding, border, and margin interact visually.</p>
+  </header>
+
+  <main>
+    <div class="container">
+      <section class="box-model">
+        <h2>Default Box Model (<code>content-box</code>)</h2>
+        <div class="box content-box">
+          <div class="content">Content</div>
+        </div>
+        <p class="desc">
+          In <code>content-box</code>, width and height apply only to the content.
+          Padding, border, and margin add extra space beyond those dimensions.
+        </p>
+      </section>
+
+      <section class="box-model">
+        <h2>Alternative Box Model (<code>border-box</code>)</h2>
+        <div class="box border-box">
+          <div class="content">Content</div>
+        </div>
+        <p class="desc">
+          In <code>border-box</code>, width and height include content, padding, and border.
+          It makes layouts easier to manage and is used by most frameworks.
+        </p>
+      </section>
+    </div>
+  </main>
+
+  <footer>
+    <p>Designed by Aaditya</p>
+  </footer>
+</body>
+</html>
