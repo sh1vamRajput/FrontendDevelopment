@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Two Iframes Example - Task 3</title>
+</head>
+<body>
+    <!-- Header section -->
+    <header>
+        <h1>Two Iframes Display Example</h1>
+        <p>This page demonstrates two iframes displayed one below another with balanced dimensions</p>
+    </header>
+
+    <!-- Main content area -->
+    <main>
+        <h2>About Me - Dual View</h2>
+        <p>Below are two separate sections embedded as iframes, showing my introduction and favorite hobby.</p>
+
+        <!-- First iframe - Introduction page -->
+        <section>
+            <h3>My Introduction</h3>
+            <iframe 
+                src="introduction.html" 
+                title="Introduction page showing personal information about Harsh Gupta"
+                width="800" 
+                height="300"
+                frameborder="1">
+                <!-- Fallback content -->
+                <p>Your browser does not support iframes. Please visit 
+                <a href="introduction.html" target="_blank">my introduction page</a> directly.</p>
+            </iframe>
+        </section>
+
+        <br>
+
+        <!-- Second iframe - Hobby page -->
+        <section>
+            <h3>My Favorite Hobby</h3>
+            <iframe 
+                src="hobby.html" 
+                title="Hobby page describing programming as favorite hobby"
+                width="800" 
+                height="300"
+                frameborder="1">
+                <!-- Fallback content -->
+                <p>Your browser does not support iframes. Please visit 
+                <a href="hobby.html" target="_blank">my hobby page</a> directly.</p>
+            </iframe>
+        </section>
+
+        <!-- Information about the implementation -->
+        <section>
+            <h3>Implementation Details</h3>
+            <p>This page demonstrates the use of multiple iframes to display separate HTML content:</p>
+            
+            <h4>Design Considerations:</h4>
+            <ul>
+                <li><strong>Balanced Dimensions:</strong> Both iframes use 800x300 pixels for consistency</li>
+                <li><strong>Proper Spacing:</strong> Adequate spacing between iframes for clear separation</li>
+                <li><strong>Descriptive Titles:</strong> Each iframe has a meaningful title for accessibility</li>
+                <li><strong>Fallback Content:</strong> Alternative links provided for browsers without iframe support</li>
+                <li><strong>Border:</strong> Frameborder="1" added to clearly define iframe boundaries</li>
+            </ul>
+
+            <h4>Content Structure:</h4>
+            <ul>
+                <li><strong>First iframe:</strong> Displays introduction.html with personal information</li>
+                <li><strong>Second iframe:</strong> Shows hobby.html describing programming passion</li>
+                <li><strong>Layout:</strong> Vertical stacking with appropriate headers and spacing</li>
+            </ul>
+        </section>
+
+        <!-- Technical notes -->
+        <section>
+            <h3>Technical Notes</h3>
+            <p>
+                <strong>Width:</strong> 800px provides good readability without overwhelming the parent page<br>
+                <strong>Height:</strong> 300px allows sufficient content display without excessive scrolling<br>
+                <strong>Frameborder:</strong> Set to 1 to provide visual boundaries between content<br>
+                <strong>Title attributes:</strong> Improve accessibility for screen readers<br>
+                <strong>Fallback links:</strong> Ensure content is accessible even if iframes fail to load
+            </p>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 HTML Learning Examples. This demonstrates multiple iframe usage with proper structure.</p>
+    </footer>
+
+</body>
+</html>
