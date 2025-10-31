@@ -1,0 +1,123 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Inter", sans-serif;
+  background-color: #f9f9fb;
+  color: #222;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+  padding: 40px 20px;
+}
+
+/* ------------------------------
+   HEADER
+------------------------------ */
+header {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+header h1 {
+  font-size: 2.8rem;
+  font-weight: 600;
+  letter-spacing: -0.5px;
+  color: #111;
+}
+
+header p {
+  margin-top: 10px;
+  color: #666;
+  font-size: 1.1rem;
+}
+
+/* ------------------------------
+   GRID SHOWCASE
+------------------------------ */
+.showcase {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 40px;
+  width: 100%;
+  max-width: 1000px;
+}
+
+/* ------------------------------
+   CARD STYLING
+------------------------------ */
+.card {
+  background: #fff;
+  border-radius: 16px;
+  padding: 32px 24px;
+  text-align: center;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.08);
+}
+
+.card h2 {
+  font-size: 1.2rem;
+  font-weight: 500;
+  color: #111;
+  margin-top: 20px;
+}
+
+.card p {
+  color: #ff8400;
+  font-size: 0.95rem;
+  margin-top: 4px;
+}
+
+/* ------------------------------
+   SHAPE (Animated Element)
+------------------------------ */
+.shape {
+  width: 100px;
+  height: 100px;
+  margin: 0 auto;
+  border-radius: 12px;
+  background: linear-gradient(145deg, #f1f1f1, #e7e7e7);
+  box-shadow:
+    4px 4px 10px rgba(0, 0, 0, 0.06),
+    -4px -4px 10px #ffd500;
+  transition: all 0.4s ease;
+}
+
+/* ------------------------------
+   TRANSFORMATIONS ON HOVER
+------------------------------ */
+.rotate:hover .shape {
+  transform: rotate(45deg);
+}
+
+.scale:hover .shape {
+  transform: scale(1.2);
+}
+
+.translate:hover .shape {
+  transform: translateY(-20px);
+}
+
+.skew:hover .shape {
+  transform: skew(10deg, 5deg);
+}
+
+/* ------------------------------
+   FOOTER
+------------------------------ */
+footer {
+  margin-top: auto;
+  text-align: center;
+  font-size: 0.9rem;
+  color: #777;
+  padding: 20px;
+}
