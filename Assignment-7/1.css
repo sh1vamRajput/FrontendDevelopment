@@ -1,0 +1,73 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Body Styles */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+  padding: 20px;
+}
+
+/* Flex Container */
+.container {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 20px;
+  background-color: #f4f4f4;
+}
+
+/* Box Styles */
+.box {
+  width: 200px;
+  height: 150px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 18px;
+  color: #fff;
+  font-weight: bold;
+  transition: border-color 0.3s ease;
+}
+
+/* Solid Border */
+.solid {
+  border: 5px solid black;
+  border-radius: 10px;
+  background-color: #3498db;
+}
+
+/* Dashed Border */
+.dashed {
+  border: 5px dashed black;
+  border-radius: 10px;
+  background-color: #e74c3c;
+}
+
+/* Double Border */
+.double {
+  border: 10px double black;
+  border-radius: 15px;
+  background-color: #2ecc71;
+}
+
+/* Groove Border */
+.groove {
+  border: 5px groove black;
+  border-radius: 20px;
+  background-color: #9b59b6;
+}
+
+/* Padding Demonstration */
+.box {
+  padding: 20px;
+}
+
+/* Hover Effect */
+.box:hover {
+  border-color: #f39c12;
+}
