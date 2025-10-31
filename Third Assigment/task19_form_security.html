@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Security Attributes - Task 19</title>
+</head>
+<body>
+    <header>
+        <h1>Form Security Demonstration</h1>
+        <p>This page shows HTML form security attributes and best practices</p>
+    </header>
+
+    <main>
+        <!-- Form with security attributes -->
+        <form action="#" method="post" autocomplete="off">
+            <h2>Secure Login Form</h2>
+            
+            <!-- Username field -->
+            <label for="username">Username:</label><br>
+            <input type="text" id="username" name="username" required><br><br>
+            
+            <!-- Password field -->
+            <label for="password">Password:</label><br>
+            <input type="password" id="password" name="password" required><br><br>
+            
+            <!-- Email field -->
+            <label for="email">Email Address:</label><br>
+            <input type="email" id="email" name="email" required><br><br>
+            
+            <!-- Security Code field -->
+            <label for="securityCode">Security Code:</label><br>
+            <input type="text" id="securityCode" name="securityCode" required><br><br>
+            
+            <input type="submit" value="Secure Login">
+        </form>
+
+        <hr>
+
+        <!-- Security explanation -->
+        <section>
+            <h3>Form Security Features</h3>
+            
+            <h4>Why Turning Off Autocomplete Improves Security</h4>
+            <p>
+                Setting <code>autocomplete="off"</code> on forms can improve security by preventing browsers 
+                from automatically filling in sensitive information. This is particularly important for:
+            </p>
+            
+            <ul>
+                <li><strong>Sensitive Data Protection:</strong> Prevents browsers from storing and auto-filling passwords, credit card numbers, or personal information</li>
+                <li><strong>Shared Computer Safety:</strong> Reduces risk when using public or shared computers where autocomplete data might be accessible to others</li>
+                <li><strong>Data Leakage Prevention:</strong> Stops accidental form completion with wrong user's saved data</li>
+                <li><strong>Compliance Requirements:</strong> Some security standards require disabling autocomplete for sensitive forms</li>
+                <li><strong>Malicious Script Protection:</strong> Prevents malicious JavaScript from automatically extracting saved form data</li>
+            </ul>
+
+            <h4>Additional Security Measures</h4>
+            <ul>
+                <li><strong>Required Fields:</strong> All form fields use <code>required</code> attribute to ensure data completion</li>
+                <li><strong>Input Types:</strong> Proper input types (email, password) provide built-in validation</li>
+                <li><strong>HTTPS Only:</strong> Always use HTTPS for forms handling sensitive data</li>
+                <li><strong>Server Validation:</strong> Never trust client-side validation alone</li>
+                <li><strong>CSRF Protection:</strong> Use tokens to prevent cross-site request forgery</li>
+            </ul>
+
+            <h4>When to Use autocomplete="off"</h4>
+            <ul>
+                <li>Login forms with sensitive credentials</li>
+                <li>Payment and financial forms</li>
+                <li>Personal information forms (SSN, ID numbers)</li>
+                <li>One-time codes and temporary access forms</li>
+                <li>Forms used in high-security environments</li>
+            </ul>
+
+            <p>
+                <strong>Note:</strong> While <code>autocomplete="off"</code> enhances security, modern browsers 
+                may sometimes ignore this attribute for password fields to improve user experience. For maximum 
+                security, combine this with other security measures and server-side validation.
+            </p>
+        </section>
+    </main>
+</body>
+</html>
