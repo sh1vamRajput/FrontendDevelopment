@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Frameset Layout Example - Task 4</title>
+</head>
+
+<!-- Frameset layout with top and bottom frames -->
+<frameset rows="20%,80%" frameborder="1" border="3">
+    <!-- Top frame for navigation -->
+    <frame src="navigation_frame.html" name="topFrame" title="Navigation links frame">
+    
+    <!-- Bottom frame for welcome message -->
+    <frame src="welcome_frame.html" name="bottomFrame" title="Welcome message frame">
+    
+    <!-- Fallback content for browsers that don't support framesets -->
+    <noframes>
+        <body>
+            <h1>Frameset Not Supported</h1>
+            <p>Your browser does not support framesets. Please visit the individual pages:</p>
+            <ul>
+                <li><a href="navigation_frame.html">Navigation</a></li>
+                <li><a href="welcome_frame.html">Welcome Message</a></li>
+            </ul>
+        </body>
+    </noframes>
+</frameset>
+
+</html>
