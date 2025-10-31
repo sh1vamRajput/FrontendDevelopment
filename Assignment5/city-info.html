@@ -1,0 +1,198 @@
+
+<!-- Design a multi-section informational webpage (for example: “About a City” or “Favorite
+Destination”).
+Requirements:
+● Include a <header>, <nav>, <main>, and <footer>.
+● Each section in <main> should have a full-width background color or image.
+● Apply a linear gradient in one section and a radial gradient in another.
+● Use padding, margins, and border to create spacing and define clear sections.
+● Headings must use different font sizes and weights using CSS.
+
+● At least two sections must demonstrate background-attachment: fixed; (parallax-like
+effect). -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Explore Kyoto</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: "Segoe UI", Arial, sans-serif;
+      color: #222;
+      line-height: 1.6;
+    }
+
+    header {
+      background-color: #2d2d2d;
+      color: white;
+      text-align: center;
+      padding: 1.5em 0;
+    }
+
+    header h1 {
+      font-size: 2rem;
+      font-weight: 700;
+    }
+
+    nav {
+      background-color: #444;
+      display: flex;
+      justify-content: center;
+      gap: 1.5em;
+      padding: 0.8em;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    nav a:hover {
+      text-decoration: underline;
+    }
+
+    main {
+      width: 100%;
+    }
+
+    section {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 3rem 2rem;
+      border-bottom: 4px solid rgba(0,0,0,0.1);
+    }
+
+    #intro {
+      background: linear-gradient(135deg, #fcd34d, #f87171);
+      color: #1a1a1a;
+    }
+
+    #intro h2 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+    }
+
+    #intro p {
+      max-width: 700px;
+      font-size: 1.1rem;
+      font-weight: 400;
+    }
+
+    #culture {
+      background-image: url('https://images.unsplash.com/photo-1530639836700-383c3f9f74ab');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      color: white;
+      text-shadow: 1px 1px 3px black;
+    }
+
+    #culture h2 {
+      font-size: 2rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+    }
+
+    #culture p {
+      max-width: 700px;
+    }
+
+    #food {
+      background: radial-gradient(circle, #fde68a, #f59e0b);
+      color: #222;
+    }
+
+    #food h2 {
+      font-size: 2.2rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+    }
+
+    #food p {
+      max-width: 700px;
+    }
+
+    #attractions {
+      background-image: url('https://images.unsplash.com/photo-1551776235-dde6d4829809');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      color: white;
+      text-shadow: 1px 1px 3px black;
+    }
+
+    #attractions h2 {
+      font-size: 2rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+    }
+
+    #attractions p {
+      max-width: 700px;
+    }
+
+    footer {
+      background-color: #2d2d2d;
+      color: white;
+      text-align: center;
+      padding: 1rem;
+      font-size: 0.9rem;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Explore Kyoto</h1>
+    <p>The cultural heart of Japan</p>
+  </header>
+
+  <nav>
+    <a href="#intro">Home</a>
+    <a href="#culture">Culture</a>
+    <a href="#food">Cuisine</a>
+    <a href="#attractions">Attractions</a>
+  </nav>
+
+  <main>
+    <section id="intro">
+      <h2>Welcome to Kyoto</h2>
+      <p>Kyoto is Japan’s ancient capital, filled with breathtaking temples, vibrant gardens, and timeless traditions. It blends the old and the new — from centuries-old shrines to modern cafes and cultural festivals.</p>
+    </section>
+
+    <section id="culture">
+      <h2>Rich Cultural Heritage</h2>
+      <p>Experience tea ceremonies, elegant kimonos, and the charm of geisha districts like Gion. Kyoto preserves the art and culture of old Japan like no other city.</p>
+    </section>
+
+    <section id="food">
+      <h2>Traditional Kyoto Cuisine</h2>
+      <p>Kyoto’s food scene offers delicate kaiseki meals, matcha desserts, and street foods that capture the city’s peaceful spirit. Every bite tells a story of refinement and balance.</p>
+    </section>
+
+    <section id="attractions">
+      <h2>Famous Attractions</h2>
+      <p>Visit Fushimi Inari Shrine’s red torii gates, Kinkaku-ji’s golden pavilion, and Arashiyama’s serene bamboo forest — each site a masterpiece of Japanese culture and beauty.</p>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Explore Kyoto | Designed by Aaditya Ranjan Moitra</p>
+  </footer>
+
+</body>
+</html>
