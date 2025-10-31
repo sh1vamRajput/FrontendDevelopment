@@ -1,0 +1,54 @@
+<!-- 1. Create a personal portfolio webpage layout using Flexbox.
+Requirements:
+● Header: includes your name (left) and navigation links (right).
+● Main area: two sections — an “About Me” section (text) and an image section.
+● Footer: simple copyright text centered.
+● Use display: flex; to align header items horizontally and main content side-by-side.
+● Ensure that when the screen width is below 700px, all sections stack vertically.
+● Center items both vertically and horizontally using align-items and
+justify-content. -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aaditya's Portfolio</title>
+  <link rel="stylesheet" href="1.css">
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <div class="logo">Aaditya Ranjan Moitra</div>
+    <nav>
+      <ul>
+        <li><a href="#about">About</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Main Content -->
+  <main>
+    <section class="about" id="about">
+      <h2>About Me</h2>
+      <p>
+        Hey there! I’m Aaditya, a B.Tech (Hons.) CSE (AI & Analytics) student with a knack for building
+        smart solutions and aesthetic websites. I love blending tech with creativity — and coffee, of course ☕.
+      </p>
+    </section>
+
+    <section class="image">
+      <img src="https://randomuser.me/api/portraits/men/23.jpg" alt="Profile Picture">
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <p>© 2025 Aaditya Ranjan Moitra. All rights reserved.</p>
+  </footer>
+
+</body>
+</html>
