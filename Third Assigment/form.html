@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form with Iframe Result</title>
+</head>
+<body>
+    <header>
+        <h1>Form Submission Example</h1>
+        <p>Submit the form below to see the result displayed in the iframe</p>
+    </header>
+
+    <main>
+        <!-- Form that targets the iframe -->
+        <form action="result.html" method="get" target="resultFrame">
+            <h2>Sample Form</h2>
+            
+            <label for="userName">Your Name:</label><br>
+            <input type="text" id="userName" name="userName" required><br><br>
+            
+            <input type="submit" value="Submit">
+        </form>
+
+        <hr>
+
+        <!-- Iframe to display the result -->
+        <h3>Form Result:</h3>
+        <iframe 
+            name="resultFrame" 
+            src="about:blank" 
+            title="Form submission result display"
+            width="100%" 
+            height="200" 
+            frameborder="1">
+            <p>Your browser does not support iframes.</p>
+        </iframe>
+    </main>
+</body>
+</html>
