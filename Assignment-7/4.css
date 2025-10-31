@@ -1,0 +1,141 @@
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root{
+  --bg-1: #0b1220;    /* page background */
+  --card-bg: #071226; /* card background (dark so white glow shows) */
+  --muted-text: #dbe6ff;
+  --accent: #7dd3fc;
+}
+
+/* Page layout */
+body {
+  min-height: 100vh;
+  font-family: "Poppins", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  background: linear-gradient(120deg, var(--bg-1), #071a2e 60%);
+  color: var(--muted-text);
+  display: flex;
+  flex-direction: column;
+}
+
+/* Header & footer */
+header, footer {
+  text-align: center;
+  padding: 18px 20px;
+  background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+  backdrop-filter: blur(6px);
+  color: var(--muted-text);
+}
+header h1 {
+  font-size: 1.6rem;
+  letter-spacing: 0.2px;
+  /* subtle white text-shadow for header */
+  text-shadow: 0 6px 18px rgba(255,255,255,0.03), 0 1px 2px rgba(255,255,255,0.06);
+}
+
+/* Container for cards */
+.card-container {
+  flex: 1;
+  display: flex;
+  gap: 28px;
+  justify-content: center;
+  align-items: center;
+  padding: 46px 20px;
+  flex-wrap: wrap;
+}
+
+/* Base card */
+.card {
+  width: 300px;
+  border-radius: 14px;
+  padding: 22px;
+  background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+  color: var(--muted-text);
+  text-align: center;
+  transition: transform 280ms cubic-bezier(.2,.9,.25,1), box-shadow 280ms cubic-bezier(.2,.9,.25,1);
+  transform: translateY(0);
+  position: relative;
+  overflow: visible;
+  /* slightly inset darker panel to make glow pop */
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.02);
+}
+
+/* Avatar */
+.card img {
+  width: 96px;
+  height: 96px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin: 6px auto 14px;
+  display: block;
+  border: 2px solid rgba(255,255,255,0.06);
+}
+
+/* Headings with white text-shadow for depth */
+.card h2 {
+  font-size: 1.25rem;
+  margin-bottom: 8px;
+  color: #fff;
+  text-shadow:
+    0 2px 6px rgba(255,255,255,0.06),
+    0 6px 22px rgba(255,255,255,0.03);
+}
+
+/* Card descriptions */
+.card p {
+  font-size: 0.95rem;
+  color: rgba(235,245,255,0.82);
+  line-height: 1.45;
+}
+
+/* ---------- White box-shadow styles (distinct per card) ---------- */
+
+/* Card 1: soft wide white glow */
+.card-1 {
+  box-shadow:
+    0 10px 30px rgba(255,255,255,0.04),  /* distant soft glow */
+    0 2px 6px rgba(255,255,255,0.03) inset; /* subtle inset */
+}
+
+/* Card 2: medium luminous rim (cool accent) */
+.card-2 {
+  box-shadow:
+    0 6px 18px rgba(125,211,252,0.06),  /* cool bluish glow */
+    0 12px 30px rgba(255,255,255,0.035);
+}
+
+/* Card 3: bright strong halo */
+.card-3 {
+  box-shadow:
+    0 14px 40px rgba(255,255,255,0.08), /* stronger white halo */
+    0 2px 8px rgba(255,255,255,0.03) inset;
+}
+
+/* ---------- Hover lift: larger white glow and translateY ---------- */
+.card:hover {
+  transform: translateY(-14px);
+}
+
+/* Hover specifics per card to emphasize individuality */
+.card-1:hover {
+  box-shadow:
+    0 28px 70px rgba(255,255,255,0.10),
+    0 6px 20px rgba(255,255,255,0.06) inset;
+}
+
+.card-2:hover {
+  box-shadow:
+    0 20px 56px rgba(125,211,252,0.12),
+    0 30px 80px rgba(255,255,255,0.06);
+}
+
+.card-3:hover {
+  box-shadow:
+    0 36px 100px rgba(255,255,255,0.14),
+    0 8px 26px rgba(255,255,255,0.07) inset;
+}
+
+/* Small responsive tweak */
+@media (max-width: 940px) {
+  .card-container { gap: 20px; padding: 28px; }
+  .card { width: 92%; max-width: 420px; }
+}
