@@ -1,0 +1,94 @@
+<!-- 9. Build a CSS layout that mimics a newspaper or magazine column structure.
+Requirements:
+● Create three vertical text columns using column-count and column-gap.
+● Add a heading that spans across all columns using column-span: all;.
+
+● Apply custom font styles and justify all text.
+● Include at least one image aligned to the left using float.
+● Ensure the layout remains clean and readable when resized.
+● Add background color to the page and padding around the main content area. -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Aaditya Times</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: "Georgia", serif;
+      background-color: #f1f5f9;
+      color: #1e293b;
+      line-height: 1.6;
+      padding: 2rem;
+      display: flex;
+      justify-content: center;
+    }
+
+    main {
+      background-color: #ffffff;
+      padding: 2rem;
+      max-width: 1000px;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+
+      /* Newspaper-style columns */
+      column-count: 3;
+      column-gap: 2rem;
+      text-align: justify;
+    }
+
+    h1 {
+      font-family: "Times New Roman", Times, serif;
+      font-size: 2rem;
+      font-weight: bold;
+      color: #0f172a;
+      margin-bottom: 1rem;
+      text-align: center;
+      column-span: all;
+      border-bottom: 2px solid #334155;
+      padding-bottom: 0.5rem;
+    }
+
+    img {
+      width: 295px;
+      height: auto;
+      float: left;
+      margin: 0 1rem 1rem 0;
+      border-radius: 5px;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+    }
+
+    p {
+      margin-bottom: 1rem;
+    }
+
+  </style>
+</head>
+<body>
+  <main>
+    <h1>The Rise of Artificial Intelligence in Everyday Life</h1>
+
+    <img src="https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&w=600&q=80" alt="Artificial Intelligence concept image">
+
+
+    <br><br><br><br><br><br><p>Artificial Intelligence (AI) has rapidly transitioned from a futuristic concept to a vital part of our daily lives. From virtual assistants like Alexa and Siri to recommendation systems on Netflix and Spotify, AI continues to shape how we interact with technology.</p>
+
+    <p>Machine learning, a subset of AI, allows computers to learn and improve from experience without explicit programming. This capability has enabled incredible advancements in predictive analytics, healthcare diagnostics, and autonomous driving technologies.</p>
+
+    <p>AI in healthcare has proven especially transformative. Algorithms can now detect diseases from X-rays and MRIs with remarkable accuracy, often outperforming human specialists in specific diagnostic areas.</p>
+
+    <p>However, as AI becomes more integrated into society, ethical concerns also grow. The questions of privacy, bias, and accountability are central to current discussions among policymakers and technologists alike.</p>
+
+    <p>In the coming years, AI is expected to play a significant role in education, personalized medicine, and climate change research. Its influence will likely redefine how humans perceive creativity, intelligence, and problem-solving itself.</p>
+
+    <p>While the future of AI promises endless possibilities, it is our responsibility to ensure that its growth benefits humanity as a whole — not just a select few. Responsible innovation, transparency, and education will be key to making that vision a reality.</p>
+  </main>
+</body>
+</html>
