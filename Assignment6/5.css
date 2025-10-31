@@ -1,0 +1,124 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: #f6f7fb;
+  color: #333;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+/* Pricing Section */
+.pricing-section {
+  text-align: center;
+  padding: 50px 20px;
+  animation: fadeIn 1.5s ease forwards;
+}
+
+.title {
+  margin-bottom: 40px;
+  font-size: 2rem;
+  color: #222;
+}
+
+/* Flex container */
+.pricing-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+  flex-wrap: wrap;
+}
+
+/* Pricing Cards */
+.card {
+  background-color: white;
+  border-radius: 12px;
+  padding: 30px 25px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+  flex: 1;
+  max-width: 300px;
+  transition: all 0.3s ease;
+  animation: fadeUp 1.2s ease both;
+}
+
+.card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* Highlighted middle card */
+.highlight {
+  background-color: #ff9800;
+  color: white;
+  transform: scale(1.1);
+}
+
+/* Price text */
+.price {
+  font-size: 2rem;
+  margin: 20px 0;
+  font-weight: 600;
+}
+
+.price span {
+  font-size: 1rem;
+  font-weight: 400;
+}
+
+/* Features */
+ul {
+  list-style: none;
+  margin: 20px 0;
+  line-height: 1.8;
+}
+
+/* Button */
+button {
+  background-color: #222;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #444;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive Layout */
+@media (max-width: 750px) {
+  .pricing-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .highlight {
+    transform: none;
+  }
+}
