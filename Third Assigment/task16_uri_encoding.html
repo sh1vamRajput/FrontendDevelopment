@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>URI Encoding Demonstration - Task 16</title>
+</head>
+<body>
+    <header>
+        <h1>URI Encoding Examples</h1>
+        <p>This page demonstrates proper URL encoding for special characters</p>
+    </header>
+
+    <main>
+        <section>
+            <h2>URL with Special Characters</h2>
+            
+            <h3>Incorrect URL (with special characters):</h3>
+            <p>https://example.com/search?query=HTML & CSS</p>
+            
+            <h3>Correct URL (properly encoded):</h3>
+            <p>
+                <a href="https://example.com/search?query=HTML%20%26%20CSS" target="_blank">
+                    https://example.com/search?query=HTML%20%26%20CSS
+                </a>
+            </p>
+        </section>
+
+        <section>
+            <h3>URI Encoding Reference</h3>
+            <table border="1">
+                <tr>
+                    <th>Character</th>
+                    <th>Encoded Form</th>
+                    <th>Description</th>
+                </tr>
+                <tr>
+                    <td>Space</td>
+                    <td>%20</td>
+                    <td>Most common encoding needed</td>
+                </tr>
+                <tr>
+                    <td>&amp;</td>
+                    <td>%26</td>
+                    <td>Ampersand character</td>
+                </tr>
+                <tr>
+                    <td>+</td>
+                    <td>%2B</td>
+                    <td>Plus sign</td>
+                </tr>
+                <tr>
+                    <td>=</td>
+                    <td>%3D</td>
+                    <td>Equals sign</td>
+                </tr>
+                <tr>
+                    <td>?</td>
+                    <td>%3F</td>
+                    <td>Question mark</td>
+                </tr>
+                <tr>
+                    <td>#</td>
+                    <td>%23</td>
+                    <td>Hash/fragment identifier</td>
+                </tr>
+            </table>
+        </section>
+
+        <section>
+            <h3>More URL Examples</h3>
+            <ul>
+                <li>
+                    <strong>Search for "web development":</strong><br>
+                    <a href="https://example.com/search?q=web%20development" target="_blank">
+                        https://example.com/search?q=web%20development
+                    </a>
+                </li>
+                <li>
+                    <strong>Search with special characters:</strong><br>
+                    <a href="https://example.com/search?q=HTML%2BCSS%26JavaScript" target="_blank">
+                        https://example.com/search?q=HTML%2BCSS%26JavaScript
+                    </a>
+                </li>
+                <li>
+                    <strong>Path with spaces:</strong><br>
+                    <a href="https://example.com/my%20documents/file%20name.html" target="_blank">
+                        https://example.com/my%20documents/file%20name.html
+                    </a>
+                </li>
+            </ul>
+        </section>
+    </main>
+</body>
+</html>
