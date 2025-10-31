@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Google Map Embed - Task 2</title>
+</head>
+<body>
+    <!-- Header section -->
+    <header>
+        <h1>Google Map Embed Example</h1>
+        <p>This page demonstrates embedding a Google Map using iframe with lazy loading</p>
+    </header>
+
+    <!-- Main content area -->
+    <main>
+        <h2>Location: New Delhi, India</h2>
+        <p>Below is an interactive Google Map showing New Delhi, the capital city of India.</p>
+        
+        <!-- Google Map iframe with lazy loading -->
+        <!-- 
+            The loading="lazy" attribute tells the browser to defer loading this iframe 
+            until it's needed (when the user scrolls near it). This improves page 
+            performance by not loading the map immediately when the page loads, 
+            especially beneficial for mobile users or slower internet connections.
+        -->
+        <iframe 
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d448196.5264478692!2d76.76357262443059!3d28.643684635256636!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390cfd5b347eb62d%3A0x37205b715389640!2sNew%20Delhi%2C%20Delhi!5e0!3m2!1sen!2sin!4v1697456789123!5m2!1sen!2sin"
+            title="Google Map showing New Delhi, India location"
+            width="600" 
+            height="450" 
+            loading="lazy"
+            allowfullscreen=""
+            referrerpolicy="no-referrer-when-downgrade">
+            <!-- Fallback content for browsers that don't support iframes -->
+            <p>Your browser does not support iframes. Please visit 
+            <a href="https://www.google.com/maps/place/New+Delhi,+Delhi/@28.6437,77.0932,10z" target="_blank">Google Maps directly</a> 
+            to view the location.</p>
+        </iframe>
+
+        <!-- Information about the location -->
+        <section>
+            <h3>About New Delhi</h3>
+            <p>
+                New Delhi is the capital of India and a part of the National Capital Territory of Delhi. 
+                It is the seat of all three branches of the Government of India, including the executive, 
+                legislative, and judiciary. The city is known for its rich history, beautiful architecture, 
+                and cultural landmarks.
+            </p>
+            
+            <h4>Key Features:</h4>
+            <ul>
+                <li>Population: Over 30 million in the metropolitan area</li>
+                <li>Area: 1,484 square kilometers</li>
+                <li>Famous landmarks: Red Fort, India Gate, Lotus Temple</li>
+                <li>Government seat: Houses Parliament, Supreme Court, and President's residence</li>
+            </ul>
+        </section>
+
+        <!-- Technical explanation -->
+        <section>
+            <h3>Technical Implementation Details</h3>
+            <p>
+                <strong>Title attribute:</strong> Provides accessible description of the map content<br>
+                <strong>Width & Height:</strong> Set to 600x450 pixels for optimal viewing<br>
+                <strong>Loading="lazy":</strong> Improves page performance by loading map only when needed<br>
+                <strong>Allowfullscreen:</strong> Enables fullscreen map viewing<br>
+                <strong>Referrerpolicy:</strong> Controls what referrer information is sent with requests
+            </p>
+        </section>
+
+        <!-- Explanation of lazy loading -->
+        <section>
+            <h3>What does loading="lazy" do?</h3>
+            <p>
+                The <code>loading="lazy"</code> attribute is a performance optimization that:
+            </p>
+            <ul>
+                <li><strong>Defers loading:</strong> The iframe content is not loaded immediately when the page loads</li>
+                <li><strong>Loads on demand:</strong> Content loads only when the user scrolls near the iframe</li>
+                <li><strong>Saves bandwidth:</strong> Reduces initial page load time and data usage</li>
+                <li><strong>Improves performance:</strong> Especially beneficial for pages with multiple embedded content</li>
+                <li><strong>Better UX:</strong> Users see the main page content faster</li>
+            </ul>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 HTML Learning Examples. This demonstrates Google Maps embedding with performance optimization.</p>
+    </footer>
+
+</body>
+</html>
