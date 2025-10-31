@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YouTube Video Embed - Task 1</title>
+</head>
+<body>
+    <!-- Header section -->
+    <header>
+        <h1>YouTube Video Embed Example</h1>
+        <p>This page demonstrates embedding a YouTube video using iframe with percentage-based dimensions</p>
+    </header>
+
+    <!-- Main content area -->
+    <main>
+        <h2>Featured Video: HTML Tutorial for Beginners</h2>
+        
+        <!-- YouTube video iframe with percentage width and height -->
+        <!-- Using percentage values makes the video responsive to browser window resizing -->
+        <iframe 
+            src="https://www.youtube.com/embed/UB1O30fR-EE" 
+            title="HTML Tutorial for Beginners - Complete Course"
+            width="80%" 
+            height="45%"
+            frameborder="0" 
+            allowfullscreen>
+            <!-- Fallback content for browsers that don't support iframes -->
+            <p>Your browser does not support iframes. Please visit 
+            <a href="https://www.youtube.com/watch?v=UB1O30fR-EE" target="_blank">YouTube directly</a> 
+            to watch this video.</p>
+        </iframe>
+
+        <!-- Additional information about the video -->
+        <div>
+            <h3>About This Video</h3>
+            <p>
+                This HTML tutorial covers the fundamentals of web development and is perfect for beginners 
+                who want to learn how to create web pages. The iframe above uses percentage-based dimensions 
+                (width="80%" and height="45%") which allows the video player to adjust its size when you 
+                resize your browser window.
+            </p>
+            
+            <h4>Benefits of Percentage-Based Sizing:</h4>
+            <ul>
+                <li>Responsive design - adapts to different screen sizes</li>
+                <li>Maintains aspect ratio when window is resized</li>
+                <li>Better user experience on mobile devices</li>
+                <li>Flexible layout that works across different browsers</li>
+            </ul>
+        </div>
+
+        <!-- Technical notes -->
+        <section>
+            <h3>Technical Implementation Notes</h3>
+            <p>
+                <strong>Width:</strong> Set to 80% of the parent container<br>
+                <strong>Height:</strong> Set to 45% of the viewport height<br>
+                <strong>Frameborder:</strong> Set to 0 to remove border<br>
+                <strong>Allowfullscreen:</strong> Enables fullscreen functionality
+            </p>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 HTML Learning Examples. This page demonstrates iframe usage with responsive design.</p>
+    </footer>
+
+</body>
+</html>
