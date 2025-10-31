@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>File Upload Form - Task 9</title>
+</head>
+<body>
+    <header>
+        <h1>Image Upload Form</h1>
+        <p>Upload your images using the form below</p>
+    </header>
+
+    <main>
+        <form action="#" method="post" enctype="multipart/form-data">
+            <h2>Upload Image</h2>
+            
+            <!-- File upload input with accept attribute -->
+            <label for="imageFile">Choose Image File:</label><br>
+            <input type="file" id="imageFile" name="imageFile" accept=".jpg,.jpeg,.png" required><br><br>
+            
+            <!-- Information about allowed files -->
+            <p><strong>File Requirements:</strong> Only .jpg, .jpeg, and .png image files are allowed. Please select a valid image file to upload.</p>
+            
+            <!-- Submit button -->
+            <input type="submit" value="Upload File">
+        </form>
+
+        <section>
+            <h3>Supported File Types</h3>
+            <ul>
+                <li><strong>.jpg</strong> - JPEG image format</li>
+                <li><strong>.jpeg</strong> - JPEG image format (alternative extension)</li>
+                <li><strong>.png</strong> - PNG image format with transparency support</li>
+            </ul>
+        </section>
+    </main>
+</body>
+</html>
