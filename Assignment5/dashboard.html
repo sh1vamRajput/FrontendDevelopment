@@ -1,0 +1,146 @@
+<!-- 8. Create a dashboard layout using only HTML and CSS.
+Requirements:
+● Header section at the top (fixed position).
+● Sidebar on the left containing navigation links.
+● Main content area on the right with at least two content boxes.
+● Use positioning and flexbox to structure the layout.
+● Ensure the sidebar height adjusts to full screen height.
+● The content boxes should have shadows and be evenly spaced.
+● On smaller screens, the sidebar should stack above the content. -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard Layout</title>
+  <style>
+    /* Reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      color: #f1f5f9;
+      background-color: #0b1220;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    /* Header */
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background-color: #1e293b;
+      color: white;
+      text-align: center;
+      padding: 1rem;
+      font-size: 1.5rem;
+      z-index: 100;
+    }
+
+    /* Layout Wrapper */
+    .dashboard {
+      display: flex;
+      flex: 1;
+      margin-top: 70px; /* height of header */
+      min-height: calc(100vh - 70px);
+    }
+
+    /* Sidebar */
+    .sidebar {
+      background-color: #111827;
+      width: 220px;
+      padding: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .sidebar a {
+      color: #cbd5e1;
+      text-decoration: none;
+      padding: 0.7rem 1rem;
+      border-radius: 5px;
+      transition: background-color 0.3s ease;
+    }
+
+    .sidebar a:hover {
+      background-color: #1e293b;
+      color: #38bdf8;
+    }
+
+    /* Main Content */
+    .main-content {
+      flex: 1;
+      padding: 2rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      justify-content: space-evenly;
+      background-color: #0f172a;
+    }
+
+    .content-box {
+      background-color: #1e293b;
+      flex: 1 1 300px;
+      max-width: 45%;
+      padding: 1.5rem;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    }
+
+    .content-box h2 {
+      margin-bottom: 1rem;
+      color: #38bdf8;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      .dashboard {
+        flex-direction: column;
+      }
+
+      .sidebar {
+        width: 100%;
+        flex-direction: row;
+        justify-content: space-around;
+      }
+
+      .content-box {
+        max-width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>Dashboard Panel</header>
+
+  <div class="dashboard">
+    <nav class="sidebar">
+      <a href="#">Overview</a>
+      <a href="#">Analytics</a>
+      <a href="#">Reports</a>
+      <a href="#">Settings</a>
+    </nav>
+
+    <main class="main-content">
+      <div class="content-box">
+        <h2>Statistics</h2>
+        <p>View performance metrics and analyze your progress using real-time data visualization and tracking tools.</p>
+      </div>
+
+      <div class="content-box">
+        <h2>Recent Activity</h2>
+        <p>Check out your recent activity logs, updates, and quick actions for managing your tasks efficiently.</p>
+      </div>
+    </main>
+  </div>
+</body>
+</html>
