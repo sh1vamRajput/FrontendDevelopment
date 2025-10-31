@@ -1,0 +1,120 @@
+<!-- 1. Create a personal portfolio homepage using HTML and CSS.
+Requirements:
+● The header should contain your name and navigation links (Home, About, Contact).
+● Use position: fixed for the header so it stays at the top when scrolling.
+● The main section should have a short bio paragraph and a profile image.
+● Use different CSS units (px, em, %, vh, rem) across elements.
+● Use custom background color and text color combinations that maintain contrast.
+● The footer should always stay at the bottom of the page (use flexbox or positioning). -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Personal Portfolio - Rahul Gupta</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #0b1220; 
+      color: #f0f0f0;            
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh; /* vh */
+    }
+
+    header {
+      position: fixed; /* fixed at top */
+      top: 0;
+      left: 0;
+      width: 100%;
+      background-color: #1e293b;
+      color: white;
+      padding: 1em; /* em */
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 10;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin-left: 1em; /* em */
+      font-size: 1rem; /* rem */
+    }
+
+    main {
+      flex: 1;
+      padding-top: 80px; /* px */
+    }
+
+    section {
+      min-height: 80vh; /* vh for scroll */
+      padding: 2rem; /* rem */
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 2rem; /* rem */
+    }
+
+    .bio {
+      width: 50%; /* % */
+      font-size: 1.1rem; /* rem */
+      line-height: 1.5;
+    }
+
+    .profile-img {
+      width: 200px; /* px */
+      height: 200px;
+      border-radius: 50%;
+      background-color: #7dd3fc;
+    }
+
+    footer {
+      background-color: #1e293b;
+      color: white;
+      text-align: center;
+      padding: 1em; /* em */
+      margin-top: auto;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Rahul Gupta</h1>
+    <nav>
+      <a href="#home">Home</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <main>
+    <section id="home">
+      <div class="bio">
+        <p>Hi, I'm Rahul Gupta — a B.Tech (Hons.) CSE (AI & Analytics) student passionate about creating intelligent systems and data-driven solutions. I love working on projects that combine creativity with real-world problem solving.</p>
+      </div>
+      <div class="profile-img"></div>
+    </section>
+
+    <section id="about">
+      <p>In the About section, you can include your background, interests, and goals. This section uses the same color scheme for contrast and demonstrates scrolling behavior with a fixed header.</p>
+    </section>
+
+    <section id="contact">
+      <p>Contact me via email or LinkedIn!</p>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Rahul Gupta | All Rights Reserved</p>
+  </footer>
+</body>
+</html>
