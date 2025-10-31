@@ -1,0 +1,109 @@
+<!-- Create a long article webpage with the following structure:
+● Header → Article Title
+● Subheading → Author name and publication date
+● Body → At least 5 paragraphs of dummy text
+Use CSS to:
+● Add consistent spacing between paragraphs using margins.
+● Style the first letter of each paragraph with a larger font using ::first-letter.
+● Make the first line of each paragraph bold using ::first-line.
+● Highlight key words using <mark> and style it with custom background color.
+● Add a left border and background color to emphasize the blockquote section. -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Future of Artificial Intelligence</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Georgia, serif;
+      background-color: #f8fafc;
+      color: #1e293b;
+      line-height: 1.7;
+      padding: 2rem 10%;
+    }
+
+    header {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+
+    header h1 {
+      font-size: 2.5rem;
+      margin-bottom: 0.5rem;
+      color: #0f172a;
+    }
+
+    .subheading {
+      color: #475569;
+      font-size: 1rem;
+      font-style: italic;
+      margin-bottom: 2rem;
+    }
+
+    article p {
+      margin-bottom: 1.5rem;
+      text-align: justify;
+    }
+
+    /* First letter larger */
+    article p::first-letter {
+      font-size: 2rem;
+      font-weight: bold;
+      color: #334155;
+    }
+
+    /* First line bold */
+    article p::first-line {
+      font-weight: bold;
+    }
+
+    /* Custom highlight style */
+    mark {
+      background-color: #fde68a;
+      padding: 0 2px;
+      border-radius: 3px;
+    }
+
+    /* Blockquote style */
+    blockquote {
+      border-left: 4px solid #0ea5e9;
+      background-color: #e0f2fe;
+      padding: 1rem 1.5rem;
+      margin: 2rem 0;
+      font-style: italic;
+      color: #1e3a8a;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>The Future of Artificial Intelligence</h1>
+    <p class="subheading">By Rahul Gupta — Published on October 27, 2025</p>
+  </header>
+
+  <article>
+    <p>Artificial Intelligence, or <mark>AI</mark>, has evolved from a niche area of computer science to one of the most influential forces shaping the modern world. From self-driving cars to automated content generation, AI continues to redefine what machines can accomplish.</p>
+
+    <p>The growth of AI has been fueled by exponential improvements in computational power and the availability of vast amounts of data. With these advancements, systems can now analyze complex patterns, make predictions, and even engage in natural conversations with humans.</p>
+
+    <blockquote>
+      “The real question is not whether intelligent machines can think, but whether humans can think intelligently about machines.”  
+      — <strong>Garry Kasparov</strong>
+    </blockquote>
+
+    <p>Despite its advantages, AI raises ethical concerns surrounding privacy, bias, and control. Many researchers emphasize the importance of building systems that are transparent, fair, and accountable. The inclusion of <mark>ethical AI</mark> principles is becoming essential in all technological developments.</p>
+
+    <p>AI’s role in the workforce is also a major topic of discussion. While automation replaces certain repetitive tasks, it also opens up opportunities for new kinds of creative and analytical roles. Preparing the next generation with <mark>AI literacy</mark> is key to adapting successfully.</p>
+
+    <p>Looking ahead, the fusion of AI with fields like biotechnology, quantum computing, and robotics will create innovations beyond imagination. The ultimate goal should not be replacing humans, but empowering them — to enhance creativity, solve global challenges, and build a smarter, more inclusive future.</p>
+  </article>
+</body>
+</html>
