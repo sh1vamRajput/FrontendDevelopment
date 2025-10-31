@@ -1,0 +1,49 @@
+<!-- 3. Create a Gradient Background Webpage
+Requirements:
+● Include two main sections: one using a linear gradient background
+
+and one using a radial gradient background.
+● Add text in each section describing its gradient type.
+● Keep a fixed header and footer for a complete layout.
+● Use background-attachment: fixed; for one section to create a
+parallax-like effect. -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+  <title>Gradient Background Demo</title>
+  <link rel="stylesheet" href="3.css" />
+</head>
+<body>
+  <header>
+    <h1>Gradient Parallax Example</h1>
+  </header>
+
+  <main>
+    <section class="linear-section">
+      <div class="content">
+        <h2>Linear Gradient Background (Fixed)</h2>
+        <p>
+          The gradient behind this section stays fixed while you scroll. 
+          The translucent overlay on this section makes the parallax effect visible.
+        </p>
+      </div>
+    </section>
+
+    <section class="radial-section">
+      <div class="content">
+        <h2>Radial Gradient Section</h2>
+        <p>
+          This section scrolls normally and uses a radial gradient that moves with the page.
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>Created by Aaditya Ranjan Moitra</p>
+  </footer>
+</body>
+</html>
