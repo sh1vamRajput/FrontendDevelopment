@@ -1,0 +1,66 @@
+<!-- 10. Design a responsive webpage layout combining Flexbox and Grid.
+Requirements:
+● Header with logo and nav links using Flexbox.
+● Main area divided into a 2-column Grid (Article + Sidebar).
+● Footer spans the full width with centered text.
+● Inside the main article, include three boxes aligned using Flexbox.
+● Use @keyframes to animate one element (e.g., a title fades in or moves up).
+● Ensure the layout collapses into a single column on mobile screens. -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Responsive Webpage Layout</title>
+  <link rel="stylesheet" href="10.css">
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="header">
+    <div class="logo">Aadi<span>Dev</span></div>
+    <nav class="nav-links">
+      <a href="#">Home</a>
+      <a href="#">About</a>
+      <a href="#">Projects</a>
+      <a href="#">Contact</a>
+    </nav>
+  </header>
+
+  <!-- Main -->
+  <main class="main-container">
+    <!-- Article section -->
+    <article class="article">
+      <h1 class="title">Welcome to My World</h1>
+      <p class="intro">
+        Explore my work, my thoughts, and my journey as a developer obsessed with coffee, code, and clean design.
+      </p>
+
+      <!-- Flexbox Boxes -->
+      <div class="flex-boxes">
+        <div class="box">Services</div>
+        <div class="box">Projects</div>
+        <div class="box">Skills</div>
+      </div>
+    </article>
+
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <h2>Sidebar</h2>
+      <ul>
+        <li>Latest Posts</li>
+        <li>Categories</li>
+        <li>Resources</li>
+        <li>Community</li>
+      </ul>
+    </aside>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <p>© 2025 AadiDev. All rights reserved.</p>
+  </footer>
+
+</body>
+</html>
