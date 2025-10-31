@@ -1,0 +1,57 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Body */
+body {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f0f3f5;
+  font-family: Arial, sans-serif;
+}
+
+/* Flex Container */
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+/* Base Box Style */
+.box {
+  color: white;
+  padding: 10px;
+  border-radius: 8px;
+  text-align: center;
+  font-size: 1em;
+  overflow: hidden;
+}
+
+/* Box 1 — Fixed sizes using px */
+.box1 {
+  width: 200px;
+  height: 150px;
+  background-color: #3498db;
+}
+
+/* Box 2 — Relative sizes using % and vh */
+.box2 {
+  width: 50%;
+  height: 30vh;
+  background-color: #e74c3c;
+}
+
+/* Box 3 — Uses min/max and overflow */
+.box3 {
+  width: 25em;           
+  min-height: 100px;      
+  max-width: 400px;       
+  background-color: #2ecc71;
+  overflow: auto;        
+}
