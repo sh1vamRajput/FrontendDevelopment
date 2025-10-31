@@ -1,0 +1,60 @@
+<!-- 5. Create a Webpage Demonstrating Advanced CSS Selectors
+Requirements:
+● Build a list of items and apply attribute selectors ([type="text"],
+[href^="https"]).
+● Demonstrate pseudo-classes (:hover, :focus, :nth-child()) and
+pseudo-elements (::before, ::after).
+● Use combinators (>, +, ~, and descendant) for selective styling.
+● Add comments in CSS explaining each selector type. -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+  <title>Advanced CSS Selectors</title>
+  <link rel="stylesheet" href="5.css" />
+</head>
+<body>
+  <header>
+    <h1>Advanced CSS Selectors</h1>
+    <p>Attribute selectors, pseudo-classes, pseudo-elements & combinators — all looking 🔥</p>
+  </header>
+
+  <main>
+    <section class="form-section">
+      <h2>🧾 Attribute Selectors</h2>
+      <form>
+        <input type="text" placeholder="Your Name" />
+        <input type="email" placeholder="Your Email" />
+        <input type="password" placeholder="Password" />
+        <button type="submit">Submit</button>
+      </form>
+    </section>
+
+    <section class="links-section">
+      <h2>🔗 Links Example</h2>
+      <ul>
+        <li><a href="https://zomato.com">HTTPS (Secure)</a></li>
+        <li><a href="http://example.org">HTTP (Not Secure)</a></li>
+        <li><a href="https://openai.com">Another Secure Link</a></li>
+      </ul>
+    </section>
+
+    <section class="list-section">
+      <h2>📜 Pseudo-classes, Pseudo-elements & Combinators</h2>
+      <ul class="items">
+        <li>First item</li>
+        <li>Second item</li>
+        <li>Third item</li>
+        <li>Fourth item</li>
+        <li>Fifth item</li>
+      </ul>
+    </section>
+  </main>
+
+  <footer>
+    <p>Made by Aaditya Ranjan Moitra.</p>
+  </footer>
+</body>
+</html>
