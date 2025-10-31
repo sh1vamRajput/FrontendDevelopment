@@ -1,0 +1,68 @@
+<!-- 6. Create a responsive blog layout using CSS Grid.
+Requirements:
+● Header with title and nav links.
+● Sidebar on the left containing categories.
+● Main content area displaying two blog posts side-by-side.
+● Footer with contact info.
+● Use grid-template-areas to structure the layout.
+● Below 800px, sidebar should move below the main content.
+● Add padding, margins, and equal spacing using gap. -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aaditya's Blog</title>
+  <link rel="stylesheet" href="6.css">
+</head>
+<body>
+
+  <div class="blog-layout">
+
+    <!-- Header -->
+    <header>
+      <h1>Aaditya's Tech Chronicles 🧠</h1>
+      <nav>
+        <a href="#">Home</a>
+        <a href="#">About</a>
+        <a href="#">Blog</a>
+        <a href="#">Contact</a>
+      </nav>
+    </header>
+
+    <!-- Sidebar -->
+    <aside>
+      <h2>Categories</h2>
+      <ul>
+        <li>AI & Machine Learning</li>
+        <li>Web Development</li>
+        <li>Data Analytics</li>
+        <li>Tech News</li>
+      </ul>
+    </aside>
+
+    <!-- Main Content -->
+    <main>
+      <article class="post">
+        <h2>The Rise of Generative AI</h2>
+        <p>Generative AI is transforming how we create, design, and interact with technology. From chatbots to art generation, it’s changing every field imaginable...</p>
+        <button>Read More</button>
+      </article>
+
+      <article class="post">
+        <h2>Why Flexbox and Grid Rule Modern CSS</h2>
+        <p>Flexbox and Grid are the backbone of responsive layouts today. Let’s dive into how they work together to simplify design and make developers’ lives easier...</p>
+        <button>Read More</button>
+      </article>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+      <p>Contact: aaditya@example.com | © 2025 Aaditya’s Blog</p>
+    </footer>
+
+  </div>
+
+</body>
+</html>
