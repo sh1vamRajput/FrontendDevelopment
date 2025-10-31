@@ -1,0 +1,52 @@
+<!-- 3. Create a 3-section homepage using Flexbox: Header, Main, and Footer.
+Requirements:
+● Header: navigation links spaced evenly using justify-content: space-around;.
+● Main: three boxes (Services, Projects, Contact) horizontally aligned.
+● On hover, each box should slightly rotate (transform: rotate(2deg);).
+● Footer: stays at the bottom and spans full width.
+● The layout must remain balanced at all screen sizes. -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Flexbox Homepage</title>
+  <link rel="stylesheet" href="3.css">
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <nav>
+      <a href="#services">Services</a>
+      <a href="#projects">Projects</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <!-- Main Section -->
+  <main>
+    <div class="box" id="services">
+      <h2>Services</h2>
+      <p>Offering web development, AI, and analytics solutions for modern businesses.</p>
+    </div>
+
+    <div class="box" id="projects">
+      <h2>Projects</h2>
+      <p>From sleek websites to powerful data dashboards — I’ve built them all.</p>
+    </div>
+
+    <div class="box" id="contact">
+      <h2>Contact</h2>
+      <p>Let’s build something awesome together!</p>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <p>© 2025 Aaditya Ranjan Moitra | All Rights Reserved</p>
+  </footer>
+
+</body>
+</html>
