@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>External Website Iframe - Task 14</title>
+</head>
+<body>
+    <header>
+        <h1>External Website Embedding</h1>
+        <p>This page demonstrates embedding an external website using iframe</p>
+    </header>
+
+    <main>
+        <h2>Wikipedia Encyclopedia</h2>
+        
+        <!-- External website iframe -->
+        <iframe 
+            src="https://www.wikipedia.org" 
+            title="Wikipedia - The Free Encyclopedia"
+            width="100%" 
+            height="600"
+            frameborder="0">
+            <!-- Fallback content -->
+            <p>Your browser does not support iframes. Please visit 
+            <a href="https://www.wikipedia.org" target="_blank">Wikipedia</a> directly.</p>
+        </iframe>
+
+        <!-- Security explanation paragraph -->
+        <section>
+            <h3>Important Security Notice</h3>
+            <p>Some websites may not allow embedding for security reasons. Many modern websites implement security measures like X-Frame-Options or Content Security Policy (CSP) headers that prevent their content from being displayed within iframes on other domains. This is done to protect against clickjacking attacks and maintain control over how their content is presented to users.</p>
+            
+            <h4>Common Security Restrictions:</h4>
+            <ul>
+                <li><strong>X-Frame-Options:</strong> HTTP header that prevents page embedding</li>
+                <li><strong>Content Security Policy:</strong> Controls resource loading and execution</li>
+                <li><strong>Same-Origin Policy:</strong> Restricts cross-domain interactions</li>
+                <li><strong>Clickjacking Protection:</strong> Prevents malicious overlay attacks</li>
+            </ul>
+
+            <h4>Why Websites Block Embedding:</h4>
+            <ul>
+                <li>Prevent unauthorized use of their content</li>
+                <li>Maintain control over user experience</li>
+                <li>Protect against security vulnerabilities</li>
+                <li>Ensure proper attribution and branding</li>
+            </ul>
+        </section>
+    </main>
+</body>
+</html>
