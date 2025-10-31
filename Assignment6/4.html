@@ -1,0 +1,50 @@
+<!-- 4. Build a dashboard layout using CSS Grid.
+Requirements:
+● Header spans the top across all columns.
+● Sidebar on the left with vertical navigation.
+● Main content with 4 boxes arranged in 2 rows and 2 columns.
+● One box should span two columns (grid-column: span 2;).
+● Use grid-gap for spacing and fractional units (fr) for widths.
+● Add hover effects that scale up the box and cast a shadow. -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard Layout</title>
+  <link rel="stylesheet" href="4.css">
+</head>
+<body>
+
+  <div class="dashboard">
+
+    <!-- Header -->
+    <header>
+      <h1>Aaditya's Dashboard</h1>
+    </header>
+
+    <!-- Sidebar -->
+    <aside>
+      <nav>
+        <ul>
+          <li><a href="#">Overview</a></li>
+          <li><a href="#">Analytics</a></li>
+          <li><a href="#">Reports</a></li>
+          <li><a href="#">Settings</a></li>
+        </ul>
+      </nav>
+    </aside>
+
+    <!-- Main Content -->
+    <main>
+      <div class="box">Revenue Overview</div>
+      <div class="box">User Statistics</div>
+      <div class="box big">Performance Insights</div>
+      <div class="box">Notifications</div>
+    </main>
+
+  </div>
+
+</body>
+</html>
