@@ -1,0 +1,102 @@
+1. Difference between Frontend, Backend, and Full-Stack Development
+
+Frontend Development:
+The frontend is the part of a website that users can see and interact with directly. It includes everything that appears on your screen — text, images, buttons, forms, etc.
+Example: When you open Amazon, the product listings, buttons, and menus are all part of the frontend.
+Technologies used: HTML, CSS, JavaScript, React, Angular.
+
+Backend Development:
+The backend is the behind-the-scenes part of a website that handles logic, databases, and server operations. It sends and receives data from the frontend.
+Example: When you log into Facebook, the backend checks your username and password in the database.
+Technologies used: Node.js, Python (Django), PHP, Java, SQL.
+
+Full-Stack Development:
+A full-stack developer works on both the frontend and backend. They can design the user interface and also manage the server and database.
+Example: A full-stack developer could build both the UI of a blog site and the server that stores the blog posts.
+
+2. Simple Diagram of Client-Server Model
+   +-----------+          Request           +-------------+
+   |   Client  | -------------------------> |   Web Server |
+   | (Browser) |                           | (e.g., Apache)|
+   +-----------+          Response          +-------------+
+          ^                                         |
+          |                                         v
+          |                                 +---------------+
+          |                                 |   Database    |
+          |                                 | (MySQL, etc.) |
+          |                                 +---------------+
+
+3. How a Browser Requests and Displays a Web Page
+
+The user types a website URL (like www.google.com
+) in the browser.
+
+The browser sends an HTTP request to the web server.
+
+The web server processes the request and sends back the HTML, CSS, and JavaScript files.
+
+The browser downloads these files and uses its rendering engine to display the page.
+
+If the page needs data (like user info), it may send another request to the server through an API.
+
+Finally, the browser renders the page on your screen for you to interact with.
+
+4. Tools Required for Web Development Environment
+Tool	Purpose
+Code Editor (VS Code)	Used for writing and editing code easily.
+Web Browser (Chrome, Firefox)	To test and view web pages.
+Version Control (Git & GitHub)	Helps manage and track changes in your code.
+Node.js & npm	Used for running JavaScript on the server and managing packages.
+Local Server (XAMPP/WAMP)	To run backend code (like PHP) on your computer.
+5. What is a Web Server?
+
+A web server is software or hardware that delivers web pages to users when requested by a browser. It stores website files (HTML, CSS, images, etc.) and sends them via the internet using HTTP or HTTPS.
+
+Examples of Web Servers:
+
+Apache HTTP Server
+
+Nginx
+
+Microsoft IIS
+
+LiteSpeed
+
+Node.js (used for JS-based applications)
+
+6. Roles in a Web Project
+
+Frontend Developer: Designs and builds the visual layout and user interface of the website using HTML, CSS, and JavaScript.
+
+Backend Developer: Works on the logic, server-side programming, APIs, and database connections.
+
+Database Administrator (DBA): Manages the database — ensures data is stored securely, backed up, and optimized for performance.
+
+
+
+8. Difference Between Static and Dynamic Websites
+Feature	Static Website	Dynamic Website
+Content	Fixed; same for every user	Changes based on user interaction
+Technology	HTML, CSS	PHP, Node.js, Python, etc.
+Example	A personal portfolio site	Facebook, Amazon, Gmail
+
+9. Five Popular Web Browsers and Rendering Engines
+Browser	Rendering Engine	Description
+Google Chrome	Blink	Fast and modern engine.
+Mozilla Firefox	Gecko	Open-source, standards-compliant.
+Microsoft Edge	Blink (previously EdgeHTML)	Now based on Chromium.
+Apple Safari	WebKit	Used in macOS and iOS.
+Opera	Blink	Uses same engine as Chrome.
+
+Rendering engines differ in how they interpret HTML, CSS, and JavaScript — leading to slight differences in page appearance and behavior across browsers.
+
+10. Basic Web Architecture Flow
++-----------+       HTTP Request        +-------------+       SQL Query       +-------------+
+|  Client   | ----------------------->  |   Web Server | ------------------> |   Database  |
+| (Browser) |                          | (Backend/API)| <------------------ | (MySQL, etc.)|
++-----------+       HTTP Response       +-------------+                      +-------------+
+         ^
+         |
+         | (Rendered HTML/CSS/JS)
+         |
+   Web Page Displayed
