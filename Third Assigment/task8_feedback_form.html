@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feedback Form - Task 8</title>
+</head>
+<body>
+    <header>
+        <h1>Customer Feedback Form</h1>
+        <p>We value your feedback! Please share your experience with us.</p>
+    </header>
+
+    <main>
+        <form action="#" method="post">
+            <h2>Your Feedback</h2>
+            
+            <!-- Feedback textarea -->
+            <label for="feedback">Your Feedback:</label><br>
+            <textarea id="feedback" name="feedback" rows="6" cols="50" placeholder="Please share your detailed feedback here..."></textarea><br><br>
+            
+            <!-- Rating radio buttons -->
+            <fieldset>
+                <legend>Rate Your Experience:</legend>
+                
+                <input type="radio" id="good" name="rating" value="good">
+                <label for="good">Good</label><br>
+                
+                <input type="radio" id="average" name="rating" value="average">
+                <label for="average">Average</label><br>
+                
+                <input type="radio" id="poor" name="rating" value="poor">
+                <label for="poor">Poor</label><br>
+            </fieldset><br>
+            
+            <!-- Submit button -->
+            <input type="submit" value="Submit Feedback">
+        </form>
+    </main>
+</body>
+</html>
