@@ -1,0 +1,48 @@
+/* Global Styles */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: 'Segoe UI', Arial, sans-serif;
+  background-color: #f9f9f9;
+  color: #333;
+}
+
+/* Typography Section */
+.typography-section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  text-align: center;
+  padding: 2em;
+  margin: auto;
+}
+
+/* Responsive Font Sizes using clamp() */
+h1 {
+  font-size: clamp(1.5rem, 4vw, 3rem);
+  color: #0077b6;
+  margin-bottom: 1em;
+}
+
+p {
+  font-size: clamp(1rem, 2vw, 1.5rem);
+  max-width: 700px;
+  line-height: 1.6;
+}
+
+/* Improved readability on smaller screens */
+@media (max-width: 700px) {
+  p {
+    line-height: 1.8;
+    padding: 0 1em;
+  }
+
+  h1 {
+    margin-bottom: 0.8em;
+  }
+}
