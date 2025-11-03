@@ -1,0 +1,87 @@
+/* General Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Page Styling */
+body {
+  font-family: Arial, sans-serif;
+  background: linear-gradient(to right, #e3f2fd, #f0f4f8);
+  color: #333;
+  text-align: center;
+  padding: 20px;
+}
+
+/* Header */
+header h1 {
+  margin-bottom: 30px;
+  color: #004b8d;
+}
+
+/* Comparison Layout */
+.comparison-container {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 30px;
+  flex-wrap: wrap;
+}
+
+/* Image Boxes */
+.image-box {
+  width: 400px;
+  background: white;
+  padding: 10px;
+  border-radius: 10px;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.image-box:hover {
+  transform: translateY(-5px);
+}
+
+.image-box img {
+  width: 100%;
+  border-radius: 8px;
+  transition: filter 0.5s ease;
+}
+
+/* Filtered Image */
+.filtered img {
+  filter: brightness(60%);
+}
+
+.filtered img:hover {
+  filter: brightness(100%);
+}
+
+/* Captions */
+.image-box p {
+  margin-top: 10px;
+  font-weight: bold;
+  color: #555;
+}
+
+/* Footer */
+footer {
+  margin-top: 40px;
+  background: #004b8d;
+  color: white;
+  padding: 10px;
+  border-radius: 8px;
+}
+
+/* Responsive: Stack vertically below 700px */
+@media (max-width: 700px) {
+  .comparison-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .image-box {
+    width: 90%;
+  }
+}
