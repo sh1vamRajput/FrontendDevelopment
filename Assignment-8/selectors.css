@@ -1,0 +1,98 @@
+/* ===== Basic Page Styling ===== */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 20px;
+  background: #f4f6f9;
+  color: #333;
+}
+
+header, footer {
+  text-align: center;
+  background: #e3f2fd;
+  padding: 15px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+}
+
+/* ===== Element Selector ===== */
+/* Applies to all paragraph (<p>) elements */
+p {
+  color: #2c3e50;
+  line-height: 1.6;
+  padding: 5px 0;
+}
+
+/* ===== Class Selector ===== */
+/* Targets elements with class="highlight" */
+.highlight {
+  background-color: #fffae6;
+  border-left: 5px solid #f1c40f;
+  padding: 8px;
+}
+
+/* ===== ID Selector ===== */
+/* Targets the element with id="unique" */
+#unique {
+  background-color: #d1f7d6;
+  border: 2px solid #2ecc71;
+  padding: 10px;
+  border-radius: 6px;
+}
+
+/* ===== Attribute Selector ===== */
+/* Selects all links that open in a new tab */
+a[target="_blank"] {
+  color: #1e88e5;
+  text-decoration: none;
+  font-weight: bold;
+}
+a[target="_blank"]:hover {
+  text-decoration: underline;
+}
+
+/* Select links that have a title attribute */
+a[title] {
+  color: #e67e22;
+}
+a[title]:hover {
+  color: #d35400;
+}
+
+/* ===== Combinator Selectors ===== */
+
+/* Descendant selector: styles all p inside .parent */
+.parent p {
+  background-color: #fce4ec;
+  padding: 5px;
+  border-radius: 5px;
+}
+
+/* Child selector (>): only immediate child paragraphs of .parent */
+.parent > p {
+  color: #c2185b;
+  font-weight: bold;
+}
+
+/* Adjacent sibling (+): styles the first paragraph after an h3 */
+.sibling h3 + p {
+  background-color: #fff3e0;
+  border-left: 4px solid #ff9800;
+  padding: 6px;
+}
+
+/* General sibling (~): styles all following paragraphs after h3 */
+.sibling h3 ~ p {
+  color: #6d4c41;
+  font-style: italic;
+}
+
+/* ===== Layout Adjustments ===== */
+section {
+  background: #fff;
+  padding: 15px;
+  margin: 15px auto;
+  width: 80%;
+  border-radius: 8px;
+  box-shadow: 0 0 6px rgba(0,0,0,0.1);
+}
