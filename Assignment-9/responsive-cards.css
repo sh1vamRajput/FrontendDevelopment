@@ -1,0 +1,67 @@
+/* Global Styles */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: #f8f8f8;
+  color: #333;
+}
+
+/* Header */
+header {
+  text-align: center;
+  background-color: #222;
+  color: white;
+  padding: 1em 0;
+}
+
+/* Card Container */
+.card-container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1.5em;
+  padding: 2em;
+}
+
+/* Card Styling */
+.card {
+  background-color: white;
+  flex: 1 1 calc(25% - 1.5em);
+  min-width: 250px;
+  padding: 1.5em;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.card:hover {
+  background-color: #e0f7fa;
+  transform: scale(1.03);
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  background-color: #222;
+  color: white;
+  padding: 1em;
+}
+
+/* Tablet View (max-width: 900px) */
+@media (max-width: 900px) {
+  .card {
+    flex: 1 1 calc(50% - 1.5em);
+  }
+}
+
+/* Mobile View (max-width: 600px) */
+@media (max-width: 600px) {
+  .card {
+    flex: 1 1 100%;
+  }
+}
