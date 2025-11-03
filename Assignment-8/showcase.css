@@ -1,0 +1,74 @@
+/* Basic reset and setup */
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #f8f9fa;
+  color: #333;
+  text-align: center;
+}
+
+header, footer {
+  margin: 20px 0;
+}
+
+/* Grid layout for the gallery */
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  padding: 20px;
+  width: 90%;
+  margin: auto;
+}
+
+/* Each card */
+.card {
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  overflow: hidden;
+  transition: transform 0.3s ease-in-out;
+  position: relative;
+}
+
+/* Image style */
+.card img {
+  width: 100%;
+  display: block;
+  border-radius: 10px 10px 0 0;
+  transition: transform 0.3s ease-in-out, filter 0.3s ease-in-out;
+}
+
+/* Overlay effect using ::after */
+.card::after {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0, 0, 0, 0);
+  transition: background 0.3s ease-in-out;
+  border-radius: 10px;
+}
+
+/* Hover effects */
+.card:hover img {
+  transform: scale(1.1);
+  filter: brightness(80%);
+}
+.card:hover::after {
+  background: rgba(0, 0, 0, 0.3);
+}
+
+/* Caption style */
+figcaption {
+  padding: 10px;
+  background: #fff;
+  font-weight: bold;
+  font-size: 0.95rem;
+}
+
+/* Responsive: stack images in one column below 700px */
+@media (max-width: 700px) {
+  .gallery {
+    grid-template-columns: 1fr;
+  }
+}
