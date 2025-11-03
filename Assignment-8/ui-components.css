@@ -1,0 +1,103 @@
+/* Apply a soft gradient background and center content */
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  font-family: Arial, sans-serif;
+  background: linear-gradient(to right, #e3f2fd, #fce4ec);
+  margin: 0;
+}
+
+/* Card container for UI elements */
+.ui-card {
+  background: #fff;
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  width: 300px;
+}
+
+/* Search bar styling */
+.search-bar {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 16px;
+  box-shadow: inset 0 2px 4px rgba(0,0,0,0.05);
+  transition: border 0.3s, box-shadow 0.3s;
+}
+
+/* Focus highlight for search bar */
+.search-bar:focus {
+  border-color: #2196f3;
+  box-shadow: 0 0 6px rgba(33,150,243,0.4);
+  outline: none;
+}
+
+/* Button group styling */
+.button-group {
+  display: flex;
+  gap: 10px;
+}
+
+/* Common button styles */
+.btn {
+  padding: 10px 20px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  font-size: 15px;
+  transition: all 0.3s ease;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.1);
+}
+
+/* Primary button */
+.primary {
+  background-color: #2196f3;
+  color: white;
+}
+.primary:hover {
+  background-color: #1976d2;
+}
+.primary:active {
+  transform: scale(0.97);
+}
+
+/* Secondary button */
+.secondary {
+  background-color: #e0e0e0;
+  color: #333;
+}
+.secondary:hover {
+  background-color: #bdbdbd;
+}
+
+/* Dropdown styling */
+.dropdown {
+  width: 100%;
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 15px;
+  background-color: #fff;
+  transition: border 0.3s, box-shadow 0.3s;
+}
+.dropdown:focus {
+  border-color: #4caf50;
+  box-shadow: 0 0 6px rgba(76,175,80,0.4);
+  outline: none;
+}
+
+/* Footer styling */
+footer {
+  margin-top: 20px;
+  color: #555;
+  font-size: 14px;
+}
