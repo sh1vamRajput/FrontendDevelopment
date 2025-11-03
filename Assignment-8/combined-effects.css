@@ -1,0 +1,70 @@
+/* Base body styling with Flexbox centering */
+body {
+  font-family: Arial, sans-serif;
+  background: linear-gradient(to right, #f8f9fa, #e3f2fd);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  margin: 0;
+  text-align: center;
+}
+
+/* Flex container for buttons */
+.effect-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+  flex-wrap: wrap;
+  margin-top: 20px;
+}
+
+/* Common button style */
+.effect-btn {
+  padding: 14px 30px;
+  border: none;
+  border-radius: 10px;
+  font-size: 16px;
+  color: white;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+}
+
+/* Color variations */
+.red {
+  background-color: #e53935;
+}
+.blue {
+  background-color: #1e88e5;
+}
+.green {
+  background-color: #43a047;
+}
+
+/* Combined Effects on Hover */
+.effect-btn:hover {
+  transform: scale(1.1);
+  box-shadow: 0 8px 15px rgba(0,0,0,0.3);
+  filter: brightness(1.1);
+}
+
+/* Active effect (when clicked) */
+.effect-btn:active {
+  transform: scale(0.95);
+  box-shadow: 0 3px 6px rgba(0,0,0,0.2);
+}
+
+/* Focus effect */
+.effect-btn:focus {
+  outline: 3px solid #ffb300;
+}
+
+/* Footer styling */
+footer {
+  margin-top: 40px;
+  color: #555;
+  font-size: 14px;
+}
