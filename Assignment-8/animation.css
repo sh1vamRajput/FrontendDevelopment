@@ -1,0 +1,88 @@
+/* Center everything using Flexbox */
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background: #f5f7fa;
+  font-family: Arial, sans-serif;
+  text-align: center;
+}
+
+/* Animation container with spacing */
+.animation-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 50px;
+  flex-wrap: wrap;
+  margin-top: 20px;
+}
+
+/*  Moving Box Animation */
+.box {
+  width: 80px;
+  height: 80px;
+  background-color: #007bff;
+  border-radius: 10px;
+  animation: moveBox 3s ease-in-out infinite alternate;
+}
+
+/* Keyframes for moving box */
+@keyframes moveBox {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(100px);
+  }
+}
+
+/* Bouncing Ball Animation */
+.ball {
+  width: 70px;
+  height: 70px;
+  background-color: #ff5722;
+  border-radius: 50%;
+  animation: bounce 1s ease-in-out infinite alternate;
+  animation-delay: 0.5s;
+}
+
+/* Keyframes for bouncing ball */
+@keyframes bounce {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-100px);
+  }
+}
+
+/*  Color-Changing Text Animation */
+.color-text {
+  font-size: 24px;
+  font-weight: bold;
+  color: #333;
+  animation: colorChange 4s linear infinite alternate;
+  animation-direction: alternate-reverse;
+}
+
+/* Keyframes for color-changing text */
+@keyframes colorChange {
+  0% {
+    color: #ff0000;
+  }
+  50% {
+    color: #00bcd4;
+  }
+  100% {
+    color: #4caf50;
+  }
+}
+
+/* Footer styling */
+footer {
+  margin-top: 40px;
+  color: #555;
+}
