@@ -1,0 +1,64 @@
+/* Center content using Flexbox and add background */
+body {
+  font-family: Arial, sans-serif;
+  background: linear-gradient(to right, #f8f9fa, #e3f2fd);
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+  justify-content: center;
+  text-align: center;
+}
+
+/* Container for both boxes */
+.container {
+  display: flex;
+  gap: 30px;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-start;
+  margin: 20px;
+}
+
+/* Common box styles */
+.box {
+  width: 250px;
+  padding: 30px;
+  border: 5px solid #333;
+  border-radius: 10px;
+  color: white;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+/* Default box (content-box) */
+.default-box {
+  background-color: #2196f3;
+  box-sizing: content-box; /* Default behavior */
+}
+
+/* Border-box */
+.border-box {
+  background-color: #4caf50;
+  box-sizing: border-box;
+}
+
+/* Heading inside boxes */
+.box h2 {
+  margin-bottom: 10px;
+}
+
+/* Footer text */
+footer {
+  margin-top: 30px;
+  color: #555;
+  font-size: 14px;
+}
+
+/* Responsive layout for small screens */
+@media (max-width: 700px) {
+  .container {
+    flex-direction: column;
+    align-items: center;
+  }
+}
