@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Box-Sizing Comparison</title>
+  <link rel="stylesheet" href="box-sizing.css">
+</head>
+<body>
+  <header>
+    <h1>Box-Sizing Comparison Page</h1>
+  </header>
+
+  <main class="container">
+    <section class="box default-box">
+      <h2>Default (content-box)</h2>
+      <p>This box uses <strong>box-sizing: content-box</strong>.  
+      Padding and border are added to the total width and height.</p>
+    </section>
+
+    <section class="box border-box">
+      <h2>Border-Box</h2>
+      <p>This box uses <strong>box-sizing: border-box</strong>.  
+      Padding and border are included within the total size.</p>
+    </section>
+  </main>
+
+  <footer>
+    <p>Resize the screen to see how both boxes adjust responsively.</p>
+  </footer>
+</body>
+</html>
