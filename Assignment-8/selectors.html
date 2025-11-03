@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CSS Selectors Practice Page</title>
+  <link rel="stylesheet" href="selectors.css">
+</head>
+<body>
+  <header>
+    <h1>CSS Selectors Practice Page</h1>
+    <p>Examples of element, class, ID, attribute, and combinator selectors.</p>
+  </header>
+
+  <main>
+    <!-- Element selector example -->
+    <section>
+      <h2>Element Selector</h2>
+      <p>This is a normal paragraph styled using an <strong>element selector</strong>.</p>
+      <p>All &lt;p&gt; tags share this same style.</p>
+    </section>
+
+    <!-- Class selector example -->
+    <section>
+      <h2>Class Selector</h2>
+      <p class="highlight">This paragraph uses a <b>class selector</b> called "highlight".</p>
+      <p class="highlight">Another paragraph with the same class.</p>
+    </section>
+
+    <!-- ID selector example -->
+    <section>
+      <h2>ID Selector</h2>
+      <p id="unique">This paragraph is styled with an <b>ID selector</b> (#unique).</p>
+    </section>
+
+    <!-- Attribute selector example -->
+    <section>
+      <h2>Attribute Selector</h2>
+      <a href="https://www.google.com" target="_blank">Visit Google</a><br>
+      <a href="https://www.wikipedia.org" target="_self">Visit Wikipedia</a><br>
+      <a href="#" title="sample">Hover me</a>
+    </section>
+
+    <!-- Combinator selector examples -->
+    <section>
+      <h2>Combinator Selectors</h2>
+      <div class="parent">
+        <p>Descendant selector → styles all p inside .parent</p>
+        <div>
+          <p>Child of a nested div (still affected by descendant rule)</p>
+        </div>
+        <p>Another paragraph inside parent</p>
+      </div>
+
+      <div class="sibling">
+        <h3>Heading</h3>
+        <p>Adjacent sibling → styles the first p right after h3</p>
+        <p>General sibling → affects all p after h3 within the same parent</p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>Created for practicing CSS selectors — Shivam Rajput</p>
+  </footer>
+</body>
+</html>
