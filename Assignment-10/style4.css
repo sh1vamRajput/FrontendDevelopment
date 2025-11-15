@@ -1,0 +1,284 @@
+/* ============================================
+   CUSTOM BOOTSTRAP THEME OVERRIDES
+   ============================================ */
+
+/* Override Bootstrap CSS Variables (Custom Properties) */
+:root {
+    /* Primary color override - Deep Purple/Indigo */
+    --bs-primary: #6366f1;
+    --bs-primary-rgb: 99, 102, 241;
+    
+    /* Secondary color */
+    --bs-secondary: #8b5cf6;
+    
+    /* Custom accent colors */
+    --custom-accent: #ec4899;
+    --custom-dark: #1e293b;
+    --custom-light: #f8fafc;
+    
+    /* Typography - Override Bootstrap's default font */
+    --bs-font-sans-serif: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    --bs-font-display: 'Playfair Display', Georgia, serif;
+    
+    /* Border radius override */
+    --bs-border-radius: 12px;
+    --bs-border-radius-lg: 16px;
+    
+    /* Shadow overrides */
+    --bs-box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    --bs-box-shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+/* General Body Styles */
+body {
+    font-family: var(--bs-font-sans-serif);
+    color: var(--custom-dark);
+    background-color: var(--custom-light);
+}
+
+/* ============================================
+   HEADER SECTION
+   ============================================ */
+.custom-header {
+    background: linear-gradient(135deg, var(--bs-primary) 0%, var(--bs-secondary) 100%);
+    color: white;
+    box-shadow: var(--bs-box-shadow);
+}
+
+.blog-title {
+    font-family: var(--bs-font-display);
+    font-size: 2.5rem;
+    font-weight: 900;
+    letter-spacing: -1px;
+}
+
+.blog-tagline {
+    font-size: 0.95rem;
+    opacity: 0.9;
+    font-weight: 400;
+}
+
+/* Custom Navigation Links */
+.nav-link-custom {
+    color: white;
+    text-decoration: none;
+    font-weight: 600;
+    transition: opacity 0.3s ease;
+    display: inline-block;
+}
+
+.nav-link-custom:hover {
+    opacity: 0.8;
+    color: white;
+}
+
+/* ============================================
+   HERO SECTION
+   ============================================ */
+.hero-section {
+    background: linear-gradient(to bottom, white 0%, var(--custom-light) 100%);
+    padding: 80px 0;
+}
+
+/* Apply custom display font to hero heading */
+.hero-heading {
+    font-family: var(--bs-font-display);
+    font-weight: 900;
+    color: var(--custom-dark);
+    letter-spacing: -2px;
+}
+
+.hero-subtitle {
+    color: #64748b;
+    font-size: 1.25rem;
+}
+
+/* ============================================
+   CUSTOM BUTTONS (Override Bootstrap)
+   ============================================ */
+.btn-custom {
+    background: linear-gradient(135deg, var(--bs-primary) 0%, var(--bs-secondary) 100%);
+    color: white;
+    border: none;
+    padding: 12px 32px;
+    font-weight: 600;
+    border-radius: var(--bs-border-radius);
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 14px 0 rgba(99, 102, 241, 0.39);
+}
+
+.btn-custom:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(99, 102, 241, 0.5);
+    color: white;
+}
+
+/* Outline button variant */
+.btn-custom-outline {
+    background: transparent;
+    color: var(--bs-primary);
+    border: 2px solid var(--bs-primary);
+    padding: 8px 24px;
+    font-weight: 600;
+    border-radius: var(--bs-border-radius);
+    transition: all 0.3s ease;
+}
+
+.btn-custom-outline:hover {
+    background: var(--bs-primary);
+    color: white;
+    transform: translateY(-2px);
+}
+
+/* ============================================
+   SECTION HEADINGS (Custom Theme Typography)
+   ============================================ */
+.section-heading {
+    font-family: var(--bs-font-display);
+    font-weight: 900;
+    color: var(--custom-dark);
+    font-size: 2.5rem;
+    letter-spacing: -1px;
+}
+
+.custom-heading {
+    font-family: var(--bs-font-display);
+    font-weight: 700;
+    color: var(--custom-dark);
+}
+
+/* ============================================
+   BLOG CARDS (Custom Theme Applied)
+   ============================================ */
+.blog-card {
+    border: none;
+    border-radius: var(--bs-border-radius-lg);
+    overflow: hidden;
+    transition: all 0.3s ease;
+    box-shadow: var(--bs-box-shadow);
+    background: white;
+}
+
+.blog-card:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--bs-box-shadow-lg);
+}
+
+/* Card images */
+.blog-card img {
+    height: 280px;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.blog-card:hover img {
+    transform: scale(1.05);
+}
+
+/* Card body styling */
+.blog-card .card-body {
+    padding: 2rem;
+}
+
+/* Card title with custom theme */
+.blog-card .card-title {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    line-height: 1.3;
+}
+
+/* ============================================
+   CUSTOM BADGE (Theme Color Applied)
+   ============================================ */
+.custom-badge {
+    background: linear-gradient(135deg, var(--bs-primary) 0%, var(--bs-secondary) 100%);
+    color: white;
+    padding: 6px 14px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    border-radius: 20px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* ============================================
+   NEWSLETTER SECTION
+   ============================================ */
+.newsletter-section {
+    background: linear-gradient(135deg, var(--bs-primary) 0%, var(--bs-secondary) 100%);
+    color: white;
+}
+
+.newsletter-section .custom-heading {
+    color: white;
+    font-size: 2rem;
+}
+
+.newsletter-section .lead {
+    opacity: 0.95;
+}
+
+/* Form control override for newsletter */
+.newsletter-section .form-control {
+    border-radius: var(--bs-border-radius);
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    padding: 12px 20px;
+}
+
+.newsletter-section .form-control:focus {
+    border-color: white;
+    box-shadow: 0 0 0 0.2rem rgba(255, 255, 255, 0.25);
+}
+
+/* ============================================
+   FOOTER
+   ============================================ */
+.custom-footer {
+    background-color: var(--custom-dark);
+    color: #94a3b8;
+}
+
+.footer-heading {
+    color: white;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    font-family: var(--bs-font-display);
+}
+
+.footer-link {
+    color: #94a3b8;
+    text-decoration: none;
+    transition: color 0.3s ease;
+    display: inline-block;
+    margin-bottom: 0.5rem;
+}
+
+.footer-link:hover {
+    color: var(--bs-primary);
+}
+
+/* ============================================
+   RESPONSIVE ADJUSTMENTS
+   ============================================ */
+@media (max-width: 768px) {
+    .blog-title {
+        font-size: 2rem;
+    }
+    
+    .hero-heading {
+        font-size: 2.5rem;
+        letter-spacing: -1px;
+    }
+    
+    .section-heading {
+        font-size: 2rem;
+    }
+    
+    .blog-card img {
+        height: 220px;
+    }
+    
+    .blog-card .card-body {
+        padding: 1.5rem;
+    }
+}
