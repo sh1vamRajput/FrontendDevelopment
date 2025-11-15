@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bella Cucina - Today's Menu</title>
+    
+    <!-- Bootstrap 5 CSS CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <link rel="stylesheet" href="menu-styles.css">
+</head>
+<body>
+    <!-- Header Section -->
+    <header class="bg-dark text-white py-4">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-6">
+                    <h1 class="mb-0">🍝 Bella Cucina</h1>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <nav class="d-inline">
+                        <a href="#" class="text-white text-decoration-none me-3">Home</a>
+                        <a href="#" class="text-white text-decoration-none me-3">Menu</a>
+                        <a href="#" class="text-white text-decoration-none">Reservations</a>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Hero Section with Featured Image -->
+        <section class="py-5 bg-light">
+            <div class="container">
+                <!-- Bootstrap .text-center utility class for centered text -->
+                <div class="row text-center">
+                    <div class="col-12">
+                        <h2 class="display-4 fw-bold mb-3">Today's Menu</h2>
+                        <!-- Bootstrap .lead class for larger, standout text -->
+                        <p class="lead text-muted">Authentic Italian cuisine made with love and fresh ingredients</p>
+                    </div>
+                </div>
+
+                <!-- Featured Image with .img-fluid for responsive image -->
+                <div class="row mt-4">
+                    <div class="col-lg-8 mx-auto">
+                        <figure class="text-center">
+                            <!-- .img-fluid makes image responsive (max-width: 100%, height: auto) -->
+                            <img src="https://images.unsplash.com/photo-1555939594-58d7cb561ad1?w=800&h=500&fit=crop" 
+                                 class="img-fluid rounded shadow-lg" 
+                                 alt="Delicious Italian pasta dish">
+                            <figcaption class="mt-3 text-muted fst-italic">
+                                Fresh homemade pasta with authentic Italian herbs and spices
+                            </figcaption>
+                        </figure>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Menu Table Section -->
+        <section class="py-5">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8">
+                        <h3 class="mb-4 text-center">Full Menu</h3>
+                        
+                        <!-- Bootstrap Table Component -->
+                        <!-- .table for base table styles -->
+                        <!-- .table-hover adds hover effect on rows -->
+                        <!-- .table-striped adds zebra-striping -->
+                        <div class="table-responsive">
+                            <table class="table table-hover table-striped">
+                                <thead class="table-dark">
+                                    <tr>
+                                        <th scope="col">Category</th>
+                                        <th scope="col">Item</th>
+                                        <th scope="col">Description</th>
+                                        <th scope="col" class="text-end">Price</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <!-- Appetizers -->
+                                    <tr>
+                                        <td class="fw-bold">Appetizers</td>
+                                        <td>Bruschetta</td>
+                                        <td>Toasted bread with tomatoes and basil</td>
+                                        <td class="text-end">$8.99</td>
+                                    </tr>
+                                    <tr>
+                                        <td></td>
+                                        <td>Caprese Salad</td>
+                                        <td>Fresh mozzarella, tomatoes, and basil</td>
+                                        <td class="text-end">$10.99</td>
+                                    </tr>
+                                    <tr>
+                                        <td></td>
+                                        <td>Calamari Fritti</td>
+                                        <td>Crispy fried squid with marinara sauce</td>
+                                        <td class="text-end">$12.99</td>
+                                    </tr>
+                                    
+                                    <!-- Pasta -->
+                                    <tr>
+                                        <td class="fw-bold">Pasta</td>
+                                        <td>Spaghetti Carbonara</td>
+                                        <td>Creamy sauce with pancetta and egg</td>
+                                        <td class="text-end">$16.99</td>
+                                    </tr>
+                                    <tr>
+                                        <td></td>
+                                        <td>Fettuccine Alfredo</td>
+                                        <td>Rich cream sauce with parmesan</td>
+                                        <td class="text-end">$15.99</td>
+                                    </tr>
+                                    <tr>
+                                        <td></td>
+                                        <td>Lasagna Bolognese</td>
+                                        <td>Layered pasta with meat sauce</td>
+                                        <td class="text-end">$18.99</td>
+                                    </tr>
+                                    
+                                    <!-- Main Courses -->
+                                    <tr>
+                                        <td class="fw-bold">Main Courses</td>
+                                        <td>Chicken Parmigiana</td>
+                                        <td>Breaded chicken with marinara and cheese</td>
+                                        <td class="text-end">$19.99</td>
+                                    </tr>
+                                    <tr>
+                                        <td></td>
+                                        <td>Veal Marsala</td>
+                                        <td>Tender veal in marsala wine sauce</td>
+                                        <td class="text-end">$24.99</td>
+                                    </tr>
+                                    <tr>
+                                        <td></td>
+                                        <td>Grilled Salmon</td>
+                                        <td>Fresh Atlantic salmon with vegetables</td>
+                                        <td class="text-end">$22.99</td>
+                                    </tr>
+                                    
+                                    <!-- Desserts -->
+                                    <tr>
+                                        <td class="fw-bold">Desserts</td>
+                                        <td>Tiramisu</td>
+                                        <td>Classic Italian coffee-flavored dessert</td>
+                                        <td class="text-end">$7.99</td>
+                                    </tr>
+                                    <tr>
+                                        <td></td>
+                                        <td>Panna Cotta</td>
+                                        <td>Creamy vanilla custard with berry sauce</td>
+                                        <td class="text-end">$6.99</td>
+                                    </tr>
+                                    <tr>
+                                        <td></td>
+                                        <td>Gelato</td>
+                                        <td>Italian ice cream (ask for flavors)</td>
+                                        <td class="text-end">$5.99</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <!-- Chef's Specials Sidebar -->
+                    <div class="col-lg-4">
+                        <h3 class="mb-4 text-center">Chef's Specials</h3>
+                        
+                        <!-- Bootstrap List Group Component -->
+                        <!-- .list-group creates a flexible list component -->
+                        <!-- .list-group-item for individual items -->
+                        <div class="list-group">
+                            <!-- .list-group-item-action makes items interactive/hoverable -->
+                            <div class="list-group-item list-group-item-action">
+                                <div class="d-flex w-100 justify-content-between">
+                                    <h5 class="mb-1">🌟 Truffle Risotto</h5>
+                                    <span class="badge bg-danger">Limited</span>
+                                </div>
+                                <p class="mb-1">Creamy arborio rice with black truffle</p>
+                                <small class="text-primary fw-bold">$28.99</small>
+                            </div>
+                            
+                            <div class="list-group-item list-group-item-action">
+                                <div class="d-flex w-100 justify-content-between">
+                                    <h5 class="mb-1">🌟 Osso Buco</h5>
+                                    <span class="badge bg-warning text-dark">Popular</span>
+                                </div>
+                                <p class="mb-1">Braised veal shanks in wine sauce</p>
+                                <small class="text-primary fw-bold">$32.99</small>
+                            </div>
+                            
+                            <div class="list-group-item list-group-item-action">
+                                <div class="d-flex w-100 justify-content-between">
+                                    <h5 class="mb-1">🌟 Seafood Linguine</h5>
+                                    <span class="badge bg-info">New</span>
+                                </div>
+                                <p class="mb-1">Fresh pasta with shrimp, clams, and mussels</p>
+                                <small class="text-primary fw-bold">$26.99</small>
+                            </div>
+                            
+                            <div class="list-group-item list-group-item-action">
+                                <div class="d-flex w-100 justify-content-between">
+                                    <h5 class="mb-1">🌟 Wild Mushroom Pizza</h5>
+                                    <span class="badge bg-success">Chef's Pick</span>
+                                </div>
+                                <p class="mb-1">Wood-fired pizza with assorted mushrooms</p>
+                                <small class="text-primary fw-bold">$18.99</small>
+                            </div>
+                        </div>
+
+                        <!-- Additional Info Card -->
+                        <div class="card mt-4 border-primary">
+                            <div class="card-body text-center">
+                                <h5 class="card-title">📞 Reservations</h5>
+                                <p class="card-text">Call us to reserve your table</p>
+                                <p class="fw-bold text-primary mb-0">(555) 123-4567</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white py-4 mt-5">
+        <div class="container text-center">
+            <p class="mb-1">Bella Cucina Italian Restaurant</p>
+            <p class="mb-0 text-muted">123 Main Street, Downtown | Open Daily 11am - 10pm</p>
+        </div>
+    </footer>
+
+    <!-- Bootstrap 5 JS Bundle (includes Popper) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
