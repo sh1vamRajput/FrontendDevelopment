@@ -1,0 +1,89 @@
+/* General Styles */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f8f9fa;
+}
+
+/* Product Card Styles */
+.product-card {
+    /* Initial state with subtle shadow */
+    border: none;
+    border-radius: 12px;
+    overflow: hidden;
+    transition: all 0.3s ease; /* Smooth transition for all properties */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Bootstrap .shadow-sm equivalent */
+}
+
+/* Hover effect - elevate card and increase shadow */
+.product-card:hover {
+    transform: translateY(-8px); /* Lift card up */
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15); /* Deeper shadow on hover */
+}
+
+/* Product Image Styles */
+.product-card img {
+    height: 250px;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+/* Zoom effect on image when hovering card */
+.product-card:hover img {
+    transform: scale(1.05);
+}
+
+/* Card Body Styling */
+.card-body {
+    padding: 1.5rem;
+}
+
+/* Product Title */
+.card-title {
+    font-weight: 600;
+    color: #212529;
+    margin-bottom: 0.75rem;
+}
+
+/* Product Description */
+.card-text {
+    font-size: 0.9rem;
+    line-height: 1.5;
+    margin-bottom: 1rem;
+}
+
+/* Price Styling */
+.card-body .h4 {
+    font-weight: 700;
+    color: #0d6efd;
+}
+
+/* Add to Cart Button */
+.btn-primary {
+    padding: 0.75rem 1.5rem;
+    font-weight: 600;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+    background-color: #0b5ed7;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(13, 110, 253, 0.3);
+}
+
+/* Header Styling */
+header h1 {
+    font-size: 1.75rem;
+    font-weight: 700;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .product-card img {
+        height: 200px;
+    }
+    
+    header h1 {
+        font-size: 1.5rem;
+    }
+}
