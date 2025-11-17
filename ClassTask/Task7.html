@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Task 2 - Tooltip Demo</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body {
+  font-family: "Aptos", sans-serif;
+  background: #f8f9fa;
+  color: #222;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 40px;
+  }
+
+h2 {
+  font-family: "Times New Roman", serif;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+/* Tooltip Container */
+.tooltip {
+  position: relative;
+  display: inline-block;
+}
+
+/* Tooltip Text */
+.tooltip .tooltip-text {
+  position: absolute;
+  bottom: 125%;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #333;
+  color: #fff;
+  padding: 6px 10px;
+  border-radius: 5px;
+  font-size: 14px;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease-in-out;
+  white-space: nowrap;
+}
+
+/* Hover Effect */
+.tooltip:hover .tooltip-text {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Tooltip Arrow */
+.tooltip .tooltip-text::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  border-width: 6px;
+  border-style: solid;
+  border-color: #333 transparent transparent transparent;
+}
+
+/* Center Layout */
+.centered {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+  margin-top: 30px;
+}
+
+.explanation {
+  max-width: 300px;
+}
+
+  </style>
+</head>
+
+<body>
+  <h2>Task 2: Tooltip with Fade-in Transition</h2>
+
+  <div class="centered">
+    <div class="tooltip">
+      <button>Hover Me</button>
+      <span class="tooltip-text">I’m a smooth fading tooltip </span>
+    </div>
+
+    <div class="explanation">
+      <p>Tooltip uses <b>position: absolute</b> to float above the element and <b>opacity + transition</b> for smooth fade-in.</p>
+    </div>
+  </div>
+</body>
+</html>
