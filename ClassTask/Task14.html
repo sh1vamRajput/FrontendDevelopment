@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Responsive Typography</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    padding: 40px;
+  }
+
+  h1 {
+    font-size: 3rem; /* Scales with screen size */
+  }
+
+  p {
+    font-size: 1.5rem; /* Slightly smaller text */
+  }
+
+  /* Make text smaller on mobile */
+  @media (max-width: 480px) {
+    h1 {
+      font-size: 2rem;
+    }
+    p {
+      font-size: 1rem;
+    }
+  }
+</style>
+</head>
+<body>
+  <h1>Responsive Typography Example</h1>
+  <p>This text resizes for mobile and desktop screens.</p>
+</body>
+</html>
