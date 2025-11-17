@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Task 6 — CSS Animation Demo</title>
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: #f4f6fa;
+      font-family: Arial, sans-serif;
+    }
+
+    .animation-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 60px;
+      flex-wrap: wrap;
+    }
+
+    /* Common style for all animated items */
+    .item {
+      width: 80px;
+      height: 80px;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    }
+
+    /* 1️⃣ Moving Box (left-right) */
+    .move-box {
+      background: #2563eb;
+      animation: moveX 3s ease-in-out infinite alternate;
+    }
+
+    @keyframes moveX {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(100px); }
+    }
+
+    /* 2️⃣ Bouncing Ball */
+    .bounce-ball {
+      background: #06b6d4;
+      border-radius: 50%;
+      animation: bounce 2s ease-in-out infinite;
+      animation-delay: 0.5s;
+    }
+
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-80px); }
+    }
+
+    /* 3️⃣ Color-Changing Square */
+    .color-change {
+      background: #f43f5e;
+      animation: colorShift 4s ease-in-out infinite alternate;
+      animation-iteration-count: infinite;
+    }
+
+    @keyframes colorShift {
+      0% { background: #f43f5e; transform: rotate(0deg); }
+      50% { background: #10b981; transform: rotate(180deg); }
+      100% { background: #facc15; transform: rotate(360deg); }
+    }
+
+    /* Responsive layout */
+    @media (max-width: 600px) {
+      .animation-container {
+        flex-direction: column;
+        gap: 40px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="animation-container">
+    <div class="item move-box"></div>
+    <div class="item bounce-ball"></div>
+    <div class="item color-change"></div>
+  </div>
+</body>
+</html>
