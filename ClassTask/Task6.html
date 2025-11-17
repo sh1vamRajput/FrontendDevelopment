@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Task 1 - Pseudo Classes Demo</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<style>
+  body {
+  font-family: "Aptos", sans-serif;
+  background: #142c45;
+  color: #a60b0b;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 40px;
+}
+
+h2 {
+  font-family: "Times New Roman", serif;
+  margin-bottom: 20px;
+  color: #711a1a;
+}
+
+.example-section {
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+  margin-bottom: 40px;
+}
+
+.example {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+a, button, li {
+  padding: 10px 15px;
+  text-decoration: none;
+  border: none;
+  border-radius: 6px;
+  background: #470a0a;
+  transition: 0.3s ease;
+  cursor: pointer;
+  display: inline-block;
+}
+
+/* :hover */
+a:hover, button:hover, li:hover {
+  background: #007bff;
+  color: rgb(152, 33, 33);
+}
+
+/* :focus */
+button:focus, a:focus {
+  outline: 2px solid #ffb703;
+  background: #bfa54f;
+}
+
+/* :active */
+a:active, button:active, li:active {
+  background: #28a745;
+  color: rgb(146, 42, 42);
+}
+
+/* :nth-child() for list */
+ul li:nth-child(odd) {
+  background: #772828;
+}
+ul li:nth-child(even) {
+  background: #4c7082;
+}
+
+.explanation {
+  max-width: 300px;
+}
+
+</style>
+<body>
+  <h2>Task 1: Pseudo-class Demonstrations</h2>
+
+  <div class="example-section">
+    <div class="example">
+      <a href="#">Hover me (link)</a>
+      <button>Focus / Active (button)</button>
+      <ul>
+        <li>Item 1</li>
+        <li>Item 2</li>
+        <li>Item 3</li>
+        <li>Item 4</li>
+      </ul>
+    </div>
+
+    <div class="explanation">
+      <p></p><b>:hover</b> → Changes background to blue when cursor is over.</p>
+      <p><b>:focus</b> → Highlights button when tab-selected.</p>
+      <p><b>:active</b> → Turns green when clicked.</p>
+      <p><b>:nth-child()</b> → Alternates list background colors (odd/even).</p>
+    </div>
+  </div>
+</body>
+</html>
