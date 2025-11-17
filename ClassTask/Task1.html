@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Box Model Example</title>
+    <style>
+        body {
+            background-color: #f0f4f8;
+            font-family: "Poppins", sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .box {
+            background-color: #ffcc70;       /* Background color */
+            padding: 30px;                   /* Inner spacing */
+            border: 5px solid #e67e22;       /* Border around the box */
+            margin: 40px;                    /* Outer spacing */
+            width: 300px;
+            text-align: center;
+            border-radius: 12px;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        h2 {
+            margin-top: 0;
+            color: #2c3e50;
+        }
+
+        p {
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <h2>Box Model</h2>
+        <p>
+            This box has <b>padding</b> (inner space), 
+            a <b>border</b>, and <b>margin</b> (outer space). 
+            Try changing their values to see how it affects layout!
+        </p>
+    </div>
+</body>
+</html>
