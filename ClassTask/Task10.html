@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Task 5 — Styled Button Collection</title>
+  <style>
+    /* Root color and style variables */
+    :root {
+      --primary: #2563eb;
+      --secondary: #06b6d4;
+      --white: #ffffff;
+      --gray: #6b7280;
+      --radius: 8px;
+      --shadow: 0 4px 10px rgba(0,0,0,0.15);
+    }
+
+    /* Page layout */
+    body {
+      font-family: Arial, sans-serif;
+      background: #f3f4f6;
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* Flex container for buttons */
+    .button-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      gap: 20px;
+      background: #fff;
+      padding: 40px;
+      border-radius: 12px;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+    }
+
+    /* Base button style */
+    button {
+      padding: 12px 24px;
+      font-size: 16px;
+      font-weight: 600;
+      border: none;
+      border-radius: var(--radius);
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: var(--shadow);
+    }
+
+    /* Primary button */
+    .btn-primary {
+      background: var(--primary);
+      color: var(--white);
+    }
+    .btn-primary:hover {
+      background: #1d4ed8;
+      transform: translateY(-2px);
+    }
+
+    /* Secondary button */
+    .btn-secondary {
+      background: var(--secondary);
+      color: #042029;
+    }
+    .btn-secondary:hover {
+      background: #0891b2;
+      transform: translateY(-2px);
+    }
+
+    /* Outline button */
+    .btn-outline {
+      background: transparent;
+      border: 2px solid var(--primary);
+      color: var(--primary);
+      box-shadow: none;
+    }
+    .btn-outline:hover {
+      background: var(--primary);
+      color: var(--white);
+      transform: translateY(-2px);
+    }
+
+    /* Disabled button */
+    .btn-disabled {
+      background: #d1d5db;
+      color: #6b7280;
+      cursor: not-allowed;
+      opacity: 0.7;
+      box-shadow: none;
+    }
+
+    /* Active (pressed) state */
+    button:active {
+      transform: scale(0.97);
+      box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    }
+
+    /* Focus (keyboard navigation) */
+    button:focus-visible {
+      outline: 3px solid #93c5fd;
+      outline-offset: 3px;
+    }
+
+    /* Responsive: stack buttons vertically on small screens */
+    @media (max-width: 500px) {
+      .button-container {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="button-container">
+    <button class="btn-primary">Primary</button>
+    <button class="btn-secondary">Secondary</button>
+    <button class="btn-outline">Outline</button>
+    <button class="btn-disabled" disabled>Disabled</button>
+  </div>
+</body>
+</html>
