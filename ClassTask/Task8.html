@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Task 3 - Image Grid Hover</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body {
+  font-family: "Aptos", sans-serif;
+  background: #f7f9fc;
+  color: #222;
+  text-align: center;
+  padding: 30px;
+}
+
+h2 {
+  font-family: "Times New Roman", serif;
+  margin-bottom: 30px;
+  color: #333;
+}
+
+/* Image Grid using Flexbox (could be Grid too) */
+.gallery {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+
+/* Each image container */
+figure {
+  position: relative;
+  width: 300px;
+  overflow: hidden;
+  border-radius: 15px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+/* Hover = Zoom + Overlay */
+figure:hover img {
+  transform: scale(1.1);
+  filter: brightness(70%);
+}
+
+figure img {
+  width: 100%;
+  height: auto;
+  transition: all 0.4s ease;
+  border-radius: 15px;
+}
+
+/* Caption below image */
+figcaption {
+  position: absolute;
+  bottom: 10px;
+  left: 0;
+  width: 100%;
+  color: #fff;
+  font-size: 18px;
+  font-weight: bold;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.6);
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+
+/* Show caption on hover */
+figure:hover figcaption {
+  opacity: 1;
+}
+
+/* Responsive: single column below 700px */
+@media (max-width: 700px) {
+  .gallery {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  figure {
+    width: 90%;
+  }
+}
+
+  </style>
+</head>
+<body>
+  <h2>Task 3: Image Grid with Hover Effects</h2>
+
+  <section class="gallery">
+    <figure>
+      <img src="https://picsum.photos/id/1015/400/300" alt="Nature 1">
+      <figcaption>Nature View</figcaption>
+    </figure>
+    <figure>
+      <img src="https://picsum.photos/id/1025/400/300" alt="Dog">
+      <figcaption>Golden Retriever</figcaption>
+    </figure>
+    <figure>
+      <img src="https://picsum.photos/id/1035/400/300" alt="Forest">
+      <figcaption>Misty Forest</figcaption>
+    </figure>
+    <figure>
+      <img src="https://picsum.photos/id/1045/400/300" alt="Mountains">
+      <figcaption>Snow Peaks</figcaption>
+    </figure>
+    <figure>
+      <img src="https://picsum.photos/id/1055/400/300" alt="City">
+      <figcaption>Urban Lights</figcaption>
+    </figure>
+    <figure>
+      <img src="https://picsum.photos/id/1065/400/300" alt="Beach">
+      <figcaption>Sunny Beach</figcaption>
+    </figure>
+  </section>
+</body>
+</html>
