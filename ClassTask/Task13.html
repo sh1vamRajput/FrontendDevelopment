@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Media Query Example</title>
+<style>
+/* Desktop */
+body {
+  background-color: lightyellow;
+  text-align: center;
+  font-family: Arial;
+  padding: 50px;
+}
+
+/* Tablet */
+@media (max-width: 768px) {
+  body {
+    background-color: lightgreen;
+  }
+}
+
+/* Mobile */
+@media (max-width: 480px) {
+  body {
+    background-color: lightblue;
+  }
+}
+</style>
+</head>
+<body>
+  <h1>Media Query Example</h1>
+  <p>Resize the window to see the background color change.</p>
+</body>
+</html>
