@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grocery Bill Calculator</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .container {
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            max-width: 500px;
+            width: 100%;
+        }
+
+        h1 {
+            color: #667eea;
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 28px;
+        }
+
+        .input-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            color: #333;
+            font-weight: 600;
+            font-size: 14px;
+        }
+
+        input {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            font-size: 16px;
+            transition: border-color 0.3s;
+        }
+
+        input:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+
+        button {
+            width: 100%;
+            padding: 14px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.2s;
+            margin-top: 10px;
+        }
+
+        button:hover {
+            transform: translateY(-2px);
+        }
+
+        button:active {
+            transform: translateY(0);
+        }
+
+        .result {
+            margin-top: 30px;
+            padding: 25px;
+            background: #f8f9ff;
+            border-radius: 12px;
+            display: none;
+        }
+
+        .result.show {
+            display: block;
+            animation: slideIn 0.3s ease;
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .result-row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 12px;
+            font-size: 16px;
+        }
+
+        .result-label {
+            color: #666;
+        }
+
+        .result-value {
+            font-weight: 600;
+            color: #333;
+        }
+
+        .discount-badge {
+            background: #4caf50;
+            color: white;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 14px;
+            margin-left: 8px;
+        }
+
+        .final-amount {
+            border-top: 2px solid #667eea;
+            padding-top: 15px;
+            margin-top: 15px;
+        }
+
+        .final-amount .result-value {
+            color: #667eea;
+            font-size: 24px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Grocery Bill Calculator</h1>
+        
+        <div class="input-group">
+            <label for="price">Price per Item (₹)</label>
+            <input type="number" id="price" placeholder="Enter price" min="0" step="0.01">
+        </div>
+
+        <div class="input-group">
+            <label for="quantity">Quantity</label>
+            <input type="number" id="quantity" placeholder="Enter quantity" min="1" value="1">
+        </div>
+
+        <button onclick="calculateBill()">Calculate Bill</button>
+
+        <div class="result" id="result">
+            <div class="result-row">
+                <span class="result-label">Subtotal:</span>
+                <span class="result-value" id="subtotal">₹0.00</span>
+            </div>
+            <div class="result-row" id="discountRow" style="display: none;">
+                <span class="result-label">Discount (10%):</span>
+                <span class="result-value" id="discount">₹0.00</span>
+            </div>
+            <div class="result-row final-amount">
+                <span class="result-label">Final Amount:</span>
+                <span class="result-value" id="finalAmount">₹0.00</span>
+            </div>
+            <div id="discountMessage" style="display: none; margin-top: 15px; text-align: center;">
+                <span class="discount-badge"> 10% Discount Applied!</span>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function calculateBill() {
+            // Get input values
+            const price = parseFloat(document.getElementById('price').value);
+            const quantity = parseInt(document.getElementById('quantity').value);
+
+            // Validate inputs
+            if (isNaN(price) || isNaN(quantity) || price <= 0 || quantity <= 0) {
+                alert('Please enter valid price and quantity values!');
+                return;
+            }
+
+            // Calculate subtotal using arithmetic operators
+            const subtotal = price * quantity;
+
+            // Initialize variables for discount and final amount
+            let discount = 0;
+            let finalAmount = subtotal;
+
+            // Check if discount applies using comparison operator
+            if (subtotal > 1000) {
+                discount = subtotal * 0.10; // 10% discount
+                finalAmount = subtotal - discount; // Calculate final amount
+            }
+
+            // Display results
+            document.getElementById('subtotal').textContent = '₹' + subtotal.toFixed(2);
+            document.getElementById('finalAmount').textContent = '₹' + finalAmount.toFixed(2);
+
+            // Show/hide discount information
+            if (discount > 0) {
+                document.getElementById('discount').textContent = '-₹' + discount.toFixed(2);
+                document.getElementById('discountRow').style.display = 'flex';
+                document.getElementById('discountMessage').style.display = 'block';
+            } else {
+                document.getElementById('discountRow').style.display = 'none';
+                document.getElementById('discountMessage').style.display = 'none';
+            }
+
+            // Show result section
+            document.getElementById('result').classList.add('show');
+        }
+
+        // Allow Enter key to calculate
+        document.getElementById('price').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') calculateBill();
+        });
+
+        document.getElementById('quantity').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') calculateBill();
+        });
+    </script>
+</body>
+</html>
