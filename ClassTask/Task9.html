@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Task 4 - CSS Selectors</title>
+  <style>
+    body {
+  font-family: "Aptos", sans-serif;
+  margin: 0;
+  padding: 0;
+  background: #f4f7fb;
+  color: #222;
+}
+
+/* Header and Footer */
+header, footer {
+  background: #333;
+  color: #fff;
+  text-align: center;
+  padding: 20px;
+  font-family: "Times New Roman", serif;
+}
+
+/* ELEMENT SELECTOR */
+p {
+  color: #333;
+  font-size: 16px;
+}
+
+/* CLASS SELECTOR */
+.highlight {
+  background-color: #ffe082;
+  padding: 10px;
+  border-left: 5px solid #f57c00;
+}
+
+/* ID SELECTOR */
+#unique {
+  background-color: #b3e5fc;
+  border-left: 5px solid #0288d1;
+  padding: 10px;
+}
+
+/* ATTRIBUTE SELECTOR */
+li[data-info="special"] {
+  background: #c8e6c9;
+  font-weight: bold;
+}
+
+/* DESCENDANT SELECTOR (selects all p inside .container) */
+.container p {
+  color: #444;
+  background: #f9fbe7;
+  margin: 5px 0;
+  padding: 8px;
+}
+
+/* CHILD COMBINATOR: only direct child p of .container */
+.container > p:first-child {
+  border-left: 5px solid #8bc34a;
+}
+
+/* ADJACENT SIBLING COMBINATOR: selects p immediately after span */
+span + p {
+  background: #ffecb3;
+  color: #795548;
+}
+
+/* GENERAL SIBLING COMBINATOR: selects all p after span */
+span ~ p {
+  border: 1px dashed #9e9e9e;
+}
+
+/* UL styling for visibility */
+ul {
+  background: #fff;
+  padding: 15px;
+  border-radius: 8px;
+  width: fit-content;
+}
+li {
+  margin: 5px 0;
+  list-style: none;
+  padding: 5px 10px;
+}
+
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Task 4: CSS Selector Examples</h1>
+  </header>
+
+  <main>
+    <section>
+      <p>Paragraph inside section — <b>element selector</b> applies here.</p>
+      <p class="highlight">This one uses a <b>class selector (.highlight)</b>.</p>
+      <p id="unique">This paragraph demonstrates an <b>ID selector (#unique)</b>.</p>
+
+      <ul>
+        <li>List item one</li>
+        <li data-info="special">List item with attribute</li>
+        <li>List item three</li>
+      </ul>
+
+      <div class="container">
+        <p>First child paragraph inside div (descendant selector).</p>
+        <p>Second paragraph (we’ll use combinators here).</p>
+        <span>Sibling element.</span>
+        <p>Third paragraph for general sibling (~) demo.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>Made with by Harsh — Task 4 completed.</p>
+  </footer>
+
+</body>
+</html>
