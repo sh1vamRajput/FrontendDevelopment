@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Step Goal Tracker</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .smartwatch {
+            background: #1a1a2e;
+            border-radius: 40px;
+            padding: 30px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+            max-width: 400px;
+            width: 100%;
+            border: 8px solid #16213e;
+        }
+
+        .screen {
+            background: linear-gradient(135deg, #0f0c29 0%, #302b63 50%, #24243e 100%);
+            border-radius: 25px;
+            padding: 30px;
+            color: white;
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 1.5em;
+            margin-bottom: 10px;
+            color: #00d4ff;
+        }
+
+        .date {
+            text-align: center;
+            color: #8b8b9f;
+            font-size: 0.9em;
+            margin-bottom: 30px;
+        }
+
+        .progress-circle-container {
+            position: relative;
+            width: 250px;
+            height: 250px;
+            margin: 0 auto 30px;
+        }
+
+        .progress-circle {
+            transform: rotate(-90deg);
+        }
+
+        .progress-circle-bg {
+            fill: none;
+            stroke: #2a2a3e;
+            stroke-width: 15;
+        }
+
+        .progress-circle-fill {
+            fill: none;
+            stroke: url(#gradient);
+            stroke-width: 15;
+            stroke-linecap: round;
+            transition: stroke-dashoffset 1s ease;
+        }
+
+        .circle-content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+        }
+
+        .step-count {
+            font-size: 3em;
+            font-weight: bold;
+            color: #00d4ff;
+            line-height: 1;
+        }
+
+        .step-label {
+            font-size: 0.9em;
+            color: #8b8b9f;
+            margin-top: 5px;
+        }
+
+        .goal-text {
+            font-size: 0.85em;
+            color: #b4b4c5;
+            margin-top: 10px;
+        }
+
+        .input-section {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            color: #b4b4c5;
+            font-size: 0.9em;
+        }
+
+        input {
+            width: 100%;
+            padding: 12px;
+            background: rgba(255, 255, 255, 0.1);
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            border-radius: 10px;
+            color: white;
+            font-size: 1.1em;
+            transition: all 0.3s;
+        }
+
+        input:focus {
+            outline: none;
+            border-color: #00d4ff;
+            background: rgba(255, 255, 255, 0.15);
+        }
+
+        input::placeholder {
+            color: #6b6b7f;
+        }
+
+        button {
+            width: 100%;
+            padding: 15px;
+            background: linear-gradient(135deg, #00d4ff 0%, #0099cc 100%);
+            color: white;
+            border: none;
+            border-radius: 12px;
+            font-size: 1.1em;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            box-shadow: 0 5px 15px rgba(0, 212, 255, 0.3);
+        }
+
+        button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(0, 212, 255, 0.4);
+        }
+
+        button:active {
+            transform: translateY(0);
+        }
+
+        .status-message {
+            text-align: center;
+            padding: 20px;
+            border-radius: 15px;
+            margin-top: 20px;
+            font-size: 1.2em;
+            font-weight: 600;
+            display: none;
+            animation: slideIn 0.5s ease;
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .status-message.show {
+            display: block;
+        }
+
+        .achieved {
+            background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);
+            box-shadow: 0 5px 20px rgba(56, 239, 125, 0.3);
+        }
+
+        .keep-going {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            box-shadow: 0 5px 20px rgba(245, 87, 108, 0.3);
+        }
+
+        .stats {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-value {
+            font-size: 1.5em;
+            font-weight: bold;
+            color: #00d4ff;
+        }
+
+        .stat-label {
+            font-size: 0.8em;
+            color: #8b8b9f;
+            margin-top: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="smartwatch">
+        <div class="screen">
+            <h1>Step Tracker</h1>
+            <div class="date" id="currentDate"></div>
+
+            <div class="progress-circle-container">
+                <svg class="progress-circle" width="250" height="250">
+                    <defs>
+                        <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" style="stop-color:#00d4ff;stop-opacity:1" />
+                            <stop offset="100%" style="stop-color:#00ff88;stop-opacity:1" />
+                        </linearGradient>
+                    </defs>
+                    <circle class="progress-circle-bg" cx="125" cy="125" r="110"></circle>
+                    <circle class="progress-circle-fill" id="progressCircle" cx="125" cy="125" r="110"></circle>
+                </svg>
+                <div class="circle-content">
+                    <div class="step-count" id="stepDisplay">0</div>
+                    <div class="step-label">steps</div>
+                    <div class="goal-text">Goal: 10,000</div>
+                </div>
+            </div>
+
+            <div class="input-section">
+                <label for="steps">Enter Your Steps</label>
+                <input type="number" id="steps" placeholder="Enter step count" min="0" step="1">
+            </div>
+
+            <button onclick="updateSteps()">Update Progress</button>
+
+            <div class="status-message" id="statusMessage"></div>
+
+            <div class="stats">
+                <div class="stat-item">
+                    <div class="stat-value" id="percentage">0%</div>
+                    <div class="stat-label">Complete</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-value" id="remaining">10,000</div>
+                    <div class="stat-label">Remaining</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const GOAL = 10000;
+        const circumference = 2 * Math.PI * 110;
+
+        // Set current date
+        const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+        document.getElementById('currentDate').textContent = new Date().toLocaleDateString('en-US', options);
+
+        // Initialize progress circle
+        const progressCircle = document.getElementById('progressCircle');
+        progressCircle.style.strokeDasharray = circumference;
+        progressCircle.style.strokeDashoffset = circumference;
+
+        function updateSteps() {
+            const steps = parseInt(document.getElementById('steps').value);
+
+            if (!steps || steps < 0) {
+                alert('Please enter a valid number of steps');
+                return;
+            }
+
+            // Update step display
+            document.getElementById('stepDisplay').textContent = steps.toLocaleString();
+
+            // Calculate percentage
+            const percentage = Math.min((steps / GOAL) * 100, 100);
+            document.getElementById('percentage').textContent = percentage.toFixed(0) + '%';
+
+            // Calculate remaining steps (using ternary operator)
+            const remaining = steps >= GOAL ? 0 : GOAL - steps;
+            document.getElementById('remaining').textContent = remaining.toLocaleString();
+
+            // Update progress circle
+            const offset = circumference - (percentage / 100) * circumference;
+            progressCircle.style.strokeDashoffset = offset;
+
+            // Use comparison + ternary operators for status message
+            const statusMessage = steps >= 10000 ? "Goal Achieved! " : "Keep Going! ";
+            const statusClass = steps >= 10000 ? "achieved" : "keep-going";
+            
+            const messageElement = document.getElementById('statusMessage');
+            messageElement.textContent = statusMessage;
+            messageElement.className = 'status-message show ' + statusClass;
+
+            // Additional motivational messages using ternary operators
+            const motivation = steps >= 10000 ? "Amazing work today!" :
+                              steps >= 7500 ? "You're almost there!" :
+                              steps >= 5000 ? "Halfway to your goal!" :
+                              steps >= 2500 ? "Great start, keep it up!" :
+                              "Every step counts!";
+            
+            setTimeout(() => {
+                messageElement.textContent = statusMessage + " " + motivation;
+            }, 500);
+        }
+
+        // Allow Enter key to update
+        document.getElementById('steps').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                updateSteps();
+            }
+        });
+    </script>
+</body>
+</html>
