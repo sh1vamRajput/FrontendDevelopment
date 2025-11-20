@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> String Manipulation Report</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 20px;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: #fff;
+            border-radius: 12px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 30px;
+            color: white;
+        }
+
+        .header h1 {
+            font-size: 28px;
+            margin-bottom: 10px;
+        }
+
+        .header p {
+            font-size: 14px;
+            opacity: 0.9;
+        }
+
+        .main-content {
+            padding: 30px;
+        }
+
+        .input-section {
+            margin-bottom: 30px;
+        }
+
+        .input-section label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        .input-section input {
+            width: 100%;
+            padding: 15px;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            font-size: 16px;
+            font-family: 'Courier New', monospace;
+            transition: border-color 0.3s;
+        }
+
+        .input-section input:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+
+        .btn {
+            background: #667eea;
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            margin-right: 10px;
+            margin-bottom: 10px;
+        }
+
+        .btn:hover {
+            background: #764ba2;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+        }
+
+        .btn-secondary {
+            background: #6c757d;
+        }
+
+        .btn-secondary:hover {
+            background: #5a6268;
+        }
+
+        .output-section {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 20px;
+            border-left: 4px solid #667eea;
+        }
+
+        .output-section h3 {
+            color: #667eea;
+            margin-bottom: 15px;
+        }
+
+        .result-item {
+            margin: 10px 0;
+            padding: 10px;
+            background: white;
+            border-radius: 6px;
+            font-family: 'Courier New', monospace;
+        }
+
+        .result-label {
+            font-weight: 600;
+            color: #555;
+            margin-bottom: 5px;
+        }
+
+        .result-value {
+            color: #333;
+            font-size: 16px;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .easter-egg-zone {
+            margin-top: 30px;
+            padding: 20px;
+            background: linear-gradient(135deg, #ffeaa7 0%, #fdcb6e 100%);
+            border-radius: 8px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .easter-egg-zone:hover {
+            transform: scale(1.02);
+            box-shadow: 0 5px 15px rgba(253, 203, 110, 0.5);
+        }
+
+        .easter-egg-zone h3 {
+            margin-bottom: 10px;
+            color: #d63031;
+        }
+
+        .secret-message {
+            background: #2d3436;
+            color: #00ff00;
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 20px;
+            font-family: 'Courier New', monospace;
+            animation: fadeIn 0.5s;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .party-mode {
+            animation: rainbow 2s linear infinite;
+        }
+
+        @keyframes rainbow {
+            0% { filter: hue-rotate(0deg); }
+            100% { filter: hue-rotate(360deg); }
+        }
+
+        .hint-box {
+            margin-top: 20px;
+            padding: 15px;
+            background: #fff3cd;
+            border-left: 4px solid #ffc107;
+            border-radius: 4px;
+            font-size: 14px;
+            color: #856404;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1> String Manipulation Report</h1>
+            <p>E-commerce Product Title Formatter</p>
+        </div>
+
+        <div class="main-content">
+            <div class="input-section">
+                <label for="productInput">Enter Product Name:</label>
+                <input 
+                    type="text" 
+                    id="productInput" 
+                    value=" wireless headphones PRO "
+                    placeholder="Type a product name...">
+            </div>
+
+            <div>
+                <button class="btn" onclick="formatProduct()">Format Product Title</button>
+                <button class="btn btn-secondary" onclick="clearOutput()">Clear Output</button>
+                <button class="btn btn-secondary" onclick="testMultiple()">Test Multiple Products</button>
+            </div>
+
+            <div id="outputSection" class="output-section hidden">
+                <h3> Results:</h3>
+                <div class="result-item">
+                    <div class="result-label">Original:</div>
+                    <div class="result-value" id="original"></div>
+                </div>
+                <div class="result-item">
+                    <div class="result-label">After trim():</div>
+                    <div class="result-value" id="trimmed"></div>
+                </div>
+                <div class="result-item">
+                    <div class="result-label">After toLowerCase():</div>
+                    <div class="result-value" id="lowercase"></div>
+                </div>
+                <div class="result-item">
+                    <div class="result-label">After Capitalize Each Word:</div>
+                    <div class="result-value" id="capitalized"></div>
+                </div>
+                <div class="result-item">
+                    <div class="result-label">After replace():</div>
+                    <div class="result-value" id="replaced"></div>
+                </div>
+                <div class="result-item">
+                    <div class="result-label">Final Title:</div>
+                    <div class="result-value" id="final" style="font-weight: bold; color: #667eea; font-size: 18px;"></div>
+                </div>
+                <div class="result-item">
+                    <div class="result-label">Length:</div>
+                    <div class="result-value" id="length"></div>
+                </div>
+            </div>
+
+            <div class="easter-egg-zone" onclick="revealSecret()">
+                <h3> Mystery Box</h3>
+                <p>Click me for a surprise!</p>
+            </div>
+
+            <div id="secretArea" class="hidden">
+                <div class="secret-message">
+                    <div>SECRET UNLOCKED! </div>
+                    <div style="margin-top: 10px;">Try these secret commands in the browser console:</div>
+                    <div style="margin-top: 10px;">
+                        • <strong>superFormat()</strong> - Ultra formatting mode<br>
+                        • <strong>stringJoke()</strong> - Random string manipulation jokes<br>
+                        • <strong>partyMode()</strong> - Activate party mode 🎊
+                    </div>
+                </div>
+            </div>
+
+            <div class="hint-box">
+                 <strong>Pro tip:</strong> Try entering "super pro max ultra" and see what happens!
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // ============================================
+        // MAIN CODE - Q2 SOLUTION
+        // ============================================
+
+        function formatProductTitle(productName) {
+            const steps = {};
+            
+            // Step 1: Store original
+            steps.original = productName;
+            
+            // Step 2: Trim extra spaces
+            steps.trimmed = productName.trim();
+            
+            // Step 3: Convert to lowercase
+            steps.lowercase = steps.trimmed.toLowerCase();
+            
+            // Step 4: Capitalize first letter of each word using split(), map(), join()
+            steps.capitalized = steps.lowercase
+                .split(' ')
+                .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+                .join(' ');
+            
+            // Step 5: Replace "Pro" with "Pro Edition"
+            steps.replaced = steps.capitalized.replace(/\bPro\b/gi, 'Pro Edition');
+            
+            // Final cleaned title
+            steps.final = steps.replaced;
+            steps.length = steps.final.length;
+            
+            return steps;
+        }
+
+        function formatProduct() {
+            const input = document.getElementById('productInput').value;
+            const result = formatProductTitle(input);
+            
+            // Display results
+            document.getElementById('outputSection').classList.remove('hidden');
+            document.getElementById('original').textContent = `"${result.original}"`;
+            document.getElementById('trimmed').textContent = `"${result.trimmed}"`;
+            document.getElementById('lowercase').textContent = `"${result.lowercase}"`;
+            document.getElementById('capitalized').textContent = `"${result.capitalized}"`;
+            document.getElementById('replaced').textContent = `"${result.replaced}"`;
+            document.getElementById('final').textContent = `"${result.final}"`;
+            document.getElementById('length').textContent = `${result.length} characters`;
+            
+            // Easter egg trigger
+            checkForEasterEgg(input.toLowerCase().trim());
+        }
+
+        function clearOutput() {
+            document.getElementById('outputSection').classList.add('hidden');
+        }
+
+        function testMultiple() {
+            const testProducts = [
+                " gaming mouse PRO ",
+                "  LAPTOP ultra PRO  ",
+                " smartphone PRO max "
+            ];
+            
+            console.log('=== Testing Multiple Products ===');
+            testProducts.forEach(product => {
+                const result = formatProductTitle(product);
+                console.log(`Original: "${result.original}"`);
+                console.log(`Formatted: "${result.final}" (${result.length} chars)`);
+                console.log('---');
+            });
+            alert('Check the browser console for results! (Press F12)');
+        }
+
+        // ============================================
+        //  EASTER EGG SECTION 
+        // ============================================
+
+        let secretClicks = 0;
+
+        function revealSecret() {
+            secretClicks++;
+            const secretArea = document.getElementById('secretArea');
+            
+            if (secretClicks >= 3) {
+                secretArea.classList.remove('hidden');
+                document.querySelector('.easter-egg-zone').innerHTML = '<h3> Secret Revealed!</h3><p>Check below for special commands </p>';
+            } else {
+                document.querySelector('.easter-egg-zone h3').textContent = ` Mystery Box (${3 - secretClicks} more clicks!)`;
+            }
+        }
+
+        function checkForEasterEgg(input) {
+            if (input.includes('super') && input.includes('pro') && input.includes('max')) {
+                setTimeout(() => {
+                    alert('🎊 MEGA COMBO DETECTED! You found the secret phrase!');
+                    partyMode();
+                }, 500);
+            }
+        }
+
+        // Secret functions accessible via console
+        window.superFormat = function() {
+            console.clear();
+            console.log('%c SUPER FORMAT MODE ACTIVATED! ', 'font-size: 20px; color: #667eea; font-weight: bold;');
+            
+            const product = document.getElementById('productInput').value;
+            const result = formatProductTitle(product);
+            
+            console.log('%c╔════════════════════════════════════════╗', 'color: #667eea;');
+            console.log('%c║      ULTRA STRING TRANSFORMATION      ║', 'color: #667eea; font-weight: bold;');
+            console.log('%c╚════════════════════════════════════════╝', 'color: #667eea;');
+            console.log('');
+            console.log(`%cOriginal:     "${result.original}"`, 'color: #888;');
+            console.log(`%c Trimmed:      "${result.trimmed}"`, 'color: #ffa500;');
+            console.log(`%c Lowercase:    "${result.lowercase}"`, 'color: #00bfff;');
+            console.log(`%c Capitalized:  "${result.capitalized}"`, 'color: #9b59b6;');
+            console.log(`%c Replaced:     "${result.replaced}"`, 'color: #e74c3c;');
+            console.log('');
+            console.log(`%cFINAL RESULT: "${result.final}"`, 'font-size: 18px; color: #00ff00; font-weight: bold;');
+            console.log(`%c📏 Length: ${result.length} characters`, 'color: #667eea;');
+        };
+
+        window.stringJoke = function() {
+            const jokes = [
+                "Why did the string go to therapy?\nBecause it had too many split() issues! ",
+                "What did the string say to the trim() method?\nYou're cutting it too close! ",
+                "Why do strings make terrible comedians?\nTheir jokes are too long! ",
+                "How do strings stay in shape?\nThey do lots of split() and join() exercises! ",
+                "What's a string's favorite music?\nHeavy metal... because of all the \n characters! "
+            ];
+            const joke = jokes[Math.floor(Math.random() * jokes.length)];
+            console.clear();
+            console.log('%c STRING MANIPULATION JOKE:', 'font-size: 18px; color: #ff69b4; font-weight: bold;');
+            console.log('%c' + joke, 'font-size: 14px; color: #667eea;');
+        };
+
+        window.partyMode = function() {
+            console.log('%c PARTY MODE ACTIVATED! ', 'font-size: 24px; color: #ff0000; font-weight: bold;');
+            document.querySelector('.container').classList.add('party-mode');
+            
+            setTimeout(() => {
+                document.querySelector('.container').classList.remove('party-mode');
+                console.log('%c Party mode ended. Back to work! ', 'color: #888;');
+            }, 5000);
+        };
+
+        // Auto-run example on page load
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                formatProduct();
+            }, 500);
+        });
+    </script>
+</body>
+</html>
