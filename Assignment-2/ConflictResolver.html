@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Scope Conflict Resolver</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Courier New', monospace;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 20px;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: #1e1e1e;
+            border-radius: 12px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            overflow: hidden;
+        }
+
+        .header {
+            background: #2d2d2d;
+            padding: 20px;
+            border-bottom: 3px solid #667eea;
+        }
+
+        .header h1 {
+            color: #fff;
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        .header p {
+            color: #aaa;
+            font-size: 14px;
+        }
+
+        .controls {
+            padding: 20px;
+            background: #252525;
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+
+        .btn {
+            background: #667eea;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 14px;
+            font-family: 'Courier New', monospace;
+            transition: all 0.3s ease;
+            font-weight: bold;
+        }
+
+        .btn:hover {
+            background: #764ba2;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+        }
+
+        .btn-secret {
+            background: #ff6b6b;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.7; }
+        }
+
+        .console {
+            background: #1e1e1e;
+            color: #0f0;
+            padding: 20px;
+            font-size: 14px;
+            line-height: 1.6;
+            max-height: 500px;
+            overflow-y: auto;
+        }
+
+        .console-line {
+            margin: 5px 0;
+            padding: 5px;
+            border-left: 3px solid transparent;
+        }
+
+        .log { color: #0f0; }
+        .info { color: #00bfff; border-left-color: #00bfff; }
+        .warn { color: #ffa500; border-left-color: #ffa500; }
+        .error { color: #ff4444; border-left-color: #ff4444; }
+        .special { 
+            color: #ff69b4; 
+            font-weight: bold;
+            border-left-color: #ff69b4;
+            animation: glow 1.5s ease-in-out infinite;
+        }
+
+        @keyframes glow {
+            0%, 100% { text-shadow: 0 0 5px #ff69b4; }
+            50% { text-shadow: 0 0 20px #ff69b4; }
+        }
+
+        .easter-egg-hint {
+            padding: 15px 20px;
+            background: #2d2d2d;
+            border-top: 2px solid #667eea;
+            color: #888;
+            font-size: 12px;
+            font-style: italic;
+            text-align: center;
+        }
+
+        .konami-activated {
+            animation: rainbow 3s linear infinite;
+        }
+
+        @keyframes rainbow {
+            0% { background: #ff0000; }
+            16% { background: #ff8800; }
+            33% { background: #ffff00; }
+            50% { background: #00ff00; }
+            66% { background: #0088ff; }
+            83% { background: #8800ff; }
+            100% { background: #ff0000; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Q1: Scope Conflict Resolver</h1>
+            <p>A company's payroll script - demonstrating variable scoping</p>
+        </div>
+
+        <div class="controls">
+            <button class="btn" onclick="runPermanentTest()">Test Permanent Employee</button>
+            <button class="btn" onclick="runContractTest()">Test Contract Employee</button>
+            <button class="btn" onclick="demonstrateScope()">Show Scope Demo</button>
+            <button class="btn" onclick="clearConsole()">Clear Console</button>
+            <button class="btn btn-secret" onclick="showHint()"> Feeling Lucky?</button>
+        </div>
+
+        <div class="console" id="console">
+            <div class="console-line info">Console ready. Click buttons to test the code...</div>
+        </div>
+
+        <div class="easter-egg-hint">
+             Psst... try the Konami code: ↑ ↑ ↓ ↓ ← → ← → B A
+        </div>
+    </div>
+
+    <script>
+        
+        let bonus = 5000;
+
+        // Function to calculate salary
+        function calculateSalary(isPermanent) {
+            // Local variable declaration
+            let salary = 40000;
+            
+            // Add bonus only if employee is permanent
+            if (isPermanent) {
+                let totalSalary = salary + bonus;
+                log(`Total Salary (Permanent): $${totalSalary}`, 'info');
+                return totalSalary;
+            } else {
+                log(`Total Salary (Contract): $${salary}`, 'info');
+                return salary;
+            }
+        }
+
+        
+
+        function log(message, type = 'log') {
+            const consoleEl = document.getElementById('console');
+            const line = document.createElement('div');
+            line.className = `console-line ${type}`;
+            line.textContent = message;
+            consoleEl.appendChild(line);
+            consoleEl.scrollTop = consoleEl.scrollHeight;
+        }
+
+        function clearConsole() {
+            document.getElementById('console').innerHTML = '<div class="console-line info">Console cleared.</div>';
+        }
+
+       
+
+        function runPermanentTest() {
+            log('=== Test: Permanent Employee ===', 'info');
+            calculateSalary(true);
+            log(`Global bonus remains: $${bonus}`, 'log');
+            log('', 'log');
+        }
+
+        function runContractTest() {
+            log('=== Test: Contract Employee ===', 'info');
+            calculateSalary(false);
+            log(`Global bonus remains: $${bonus}`, 'log');
+            log('', 'log');
+        }
+
+        function demonstrateScope() {
+            log('=== Scope Demonstration ===', 'warn');
+            log(`Global bonus = $${bonus}`, 'log');
+            log('Attempting to access isPermanent outside function...', 'log');
+            try {
+                console.log(isPermanent);
+            } catch(e) {
+                log(` Error: ${e.message}`, 'error');
+                log(' isPermanent only exists inside calculateSalary()!', 'info');
+            }
+            log('', 'log');
+        }
+
+        
+
+        let konamiIndex = 0;
+        const konamiCode = ['ArrowUp', 'ArrowUp', 'ArrowDown', 'ArrowDown', 
+                           'ArrowLeft', 'ArrowRight', 'ArrowLeft', 'ArrowRight', 'b', 'a'];
+
+        document.addEventListener('keydown', function(e) {
+            const key = e.key.toLowerCase();
+            if (key === konamiCode[konamiIndex] || e.code === konamiCode[konamiIndex]) {
+                konamiIndex++;
+                if (konamiIndex === konamiCode.length) {
+                    activateKonami();
+                    konamiIndex = 0;
+                }
+            } else {
+                konamiIndex = 0;
+            }
+        });
+
+        function activateKonami() {
+            clearConsole();
+            log(' KONAMI CODE ACTIVATED! ', 'special');
+            log('You found the secret! Here\'s your reward...', 'special');
+            
+            let godModeSalary = 999999;
+            log(` GOD MODE SALARY: $${godModeSalary} `, 'special');
+            log('But remember: with great scope comes great responsibility! ', 'special');
+            
+            document.querySelector('.container').classList.add('konami-activated');
+            setTimeout(() => {
+                document.querySelector('.container').classList.remove('konami-activated');
+            }, 3000);
+            
+            playSound();
+        }
+
+        function showHint() {
+            const hints = [
+                ' Try the arrow keys...',
+                ' The Konami code is a classic!',
+                ' Up, up, down, down...',
+                ' Check the hint at the bottom!',
+                ' Keyboard shortcuts can be fun!'
+            ];
+            const randomHint = hints[Math.floor(Math.random() * hints.length)];
+            log(randomHint, 'warn');
+        }
+
+        function playSound() {
+            // Easter egg sound effect using Web Audio API
+            const audioContext = new (window.AudioContext || window.webkitAudioContext)();
+            const oscillator = audioContext.createOscillator();
+            const gainNode = audioContext.createGain();
+            
+            oscillator.connect(gainNode);
+            gainNode.connect(audioContext.destination);
+            
+            oscillator.frequency.value = 800;
+            oscillator.type = 'square';
+            
+            gainNode.gain.setValueAtTime(0.3, audioContext.currentTime);
+            gainNode.gain.exponentialRampToValueAtTime(0.01, audioContext.currentTime + 0.5);
+            
+            oscillator.start(audioContext.currentTime);
+            oscillator.stop(audioContext.currentTime + 0.5);
+        }
+
+        // Hidden console functions - students can discover these!
+        window.scopeJoke = function() {
+            const jokes = [
+                "Why did the variable break up with the function?\nBecause it couldn't handle the scope of their relationship! ",
+                "What did the global variable say to the local variable?\nI can see you, but you can't see me! ",
+                "Why don't JavaScript developers like nature?\nBecause they prefer their own scope! ",
+                "How do you comfort a JavaScript bug?\nYou console it! "
+            ];
+            const joke = jokes[Math.floor(Math.random() * jokes.length)];
+            clearConsole();
+            log(' Random Scope Joke:', 'special');
+            joke.split('\n').forEach(line => log(line, 'special'));
+        };
+
+        window.secretBonus = function() {
+            clearConsole();
+            bonus = 10000;
+            log(' SECRET BONUS DOUBLED! ', 'special');
+            log(`Global bonus is now: $${bonus}`, 'special');
+            log('Let\'s see how this affects the calculation...', 'info');
+            calculateSalary(true);
+        };
+
+        // Initial welcome message
+        log(' Payroll Calculator Loaded', 'info');
+        log('Try the buttons above to test different scenarios!', 'log');
+        log('', 'log');
+    </script>
+</body>
+</html>
