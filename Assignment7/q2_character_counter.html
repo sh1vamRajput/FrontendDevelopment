@@ -1,0 +1,823 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Live Character Counter</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      min-height: 100vh;
+      padding: 20px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .container {
+      background: white;
+      border-radius: 20px;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+      padding: 40px;
+      max-width: 600px;
+      width: 100%;
+    }
+
+    h1 {
+      color: #333;
+      margin-bottom: 10px;
+      font-size: 2rem;
+      text-align: center;
+    }
+
+    .subtitle {
+      text-align: center;
+      color: #666;
+      margin-bottom: 30px;
+      font-size: 0.9rem;
+    }
+
+    .textarea-container {
+      position: relative;
+      margin-bottom: 20px;
+    }
+
+    #textInput {
+      width: 100%;
+      min-height: 200px;
+      padding: 20px;
+      border: 3px solid #e0e0e0;
+      border-radius: 15px;
+      font-size: 1rem;
+      font-family: inherit;
+      resize: vertical;
+      transition: all 0.3s ease;
+      line-height: 1.6;
+    }
+
+    #textInput:focus {
+      outline: none;
+      border-color: #667eea;
+      box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+    }
+
+    /* Warning state - yellow border */
+    #textInput.warning {
+      border-color: #ffc107;
+      background-color: #fffbf0;
+    }
+
+    #textInput.warning:focus {
+      box-shadow: 0 0 0 3px rgba(255, 193, 7, 0.2);
+    }
+
+    /* Danger state - red border */
+    #textInput.danger {
+      border-color: #f44336;
+      background-color: #fff5f5;
+    }
+
+    #textInput.danger:focus {
+      box-shadow: 0 0 0 3px rgba(244, 67, 54, 0.2);
+    }
+
+    /* Character counter display */
+    .counter-display {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 20px;
+      background: #f8f9fa;
+      border-radius: 10px;
+      margin-bottom: 20px;
+      transition: all 0.3s ease;
+    }
+
+    .counter-display.warning {
+      background: #fff3cd;
+      border: 2px solid #ffc107;
+    }
+
+    .counter-display.danger {
+      background: #ffe6e6;
+      border: 2px solid #f44336;
+      animation: shake 0.5s ease;
+    }
+
+    @keyframes shake {
+      0%, 100% { transform: translateX(0); }
+      10%, 30%, 50%, 70%, 90% { transform: translateX(-5px); }
+      20%, 40%, 60%, 80% { transform: translateX(5px); }
+    }
+
+    .counter-label {
+      font-size: 0.9rem;
+      color: #666;
+      font-weight: 500;
+    }
+
+    .counter-value {
+      font-size: 2rem;
+      font-weight: bold;
+      color: #667eea;
+      transition: all 0.3s ease;
+    }
+
+    .counter-value.warning {
+      color: #ffc107;
+    }
+
+    .counter-value.danger {
+      color: #f44336;
+      animation: pulse 1s ease-in-out infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.1); }
+    }
+
+    /* Progress bar */
+    .progress-container {
+      width: 100%;
+      height: 8px;
+      background: #e0e0e0;
+      border-radius: 10px;
+      overflow: hidden;
+      margin-bottom: 20px;
+    }
+
+    .progress-bar {
+      height: 100%;
+      background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+      transition: all 0.3s ease;
+      border-radius: 10px;
+    }
+
+    .progress-bar.warning {
+      background: linear-gradient(90deg, #ffc107 0%, #ff9800 100%);
+    }
+
+    .progress-bar.danger {
+      background: linear-gradient(90deg, #f44336 0%, #d32f2f 100%);
+    }
+
+    /* Statistics grid */
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 15px;
+      margin-bottom: 20px;
+    }
+
+    .stat-card {
+      background: #f8f9fa;
+      padding: 15px;
+      border-radius: 10px;
+      text-align: center;
+      transition: all 0.3s ease;
+    }
+
+    .stat-card:hover {
+      background: #e9ecef;
+      transform: translateY(-2px);
+    }
+
+    .stat-label {
+      font-size: 0.75rem;
+      color: #666;
+      margin-bottom: 5px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .stat-value {
+      font-size: 1.3rem;
+      font-weight: bold;
+      color: #667eea;
+    }
+
+    /* Buttons */
+    .button-group {
+      display: flex;
+      gap: 10px;
+    }
+
+    .btn {
+      flex: 1;
+      padding: 15px;
+      border: none;
+      border-radius: 10px;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+
+    .btn-reset {
+      background: linear-gradient(135deg, #f44336 0%, #d32f2f 100%);
+      color: white;
+      box-shadow: 0 4px 15px rgba(244, 67, 54, 0.4);
+    }
+
+    .btn-reset:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(244, 67, 54, 0.6);
+    }
+
+    .btn-reset:active {
+      transform: translateY(0);
+    }
+
+    .btn-copy {
+      background: linear-gradient(135deg, #4caf50 0%, #45a049 100%);
+      color: white;
+      box-shadow: 0 4px 15px rgba(76, 175, 80, 0.4);
+    }
+
+    .btn-copy:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(76, 175, 80, 0.6);
+    }
+
+    .btn-copy:active {
+      transform: translateY(0);
+    }
+
+    .btn:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+      transform: none !important;
+    }
+
+    /* Warning messages */
+    .warning-message {
+      padding: 12px 20px;
+      border-radius: 10px;
+      margin-bottom: 20px;
+      font-size: 0.9rem;
+      display: none;
+      animation: slideDown 0.3s ease;
+    }
+
+    @keyframes slideDown {
+      from {
+        opacity: 0;
+        transform: translateY(-10px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .warning-message.show {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .warning-message.warning-level {
+      background: #fff3cd;
+      border: 2px solid #ffc107;
+      color: #856404;
+    }
+
+    .warning-message.danger-level {
+      background: #ffe6e6;
+      border: 2px solid #f44336;
+      color: #c62828;
+    }
+
+    .warning-icon {
+      font-size: 1.5rem;
+    }
+
+    /* Notification toast */
+    .toast {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      background: white;
+      padding: 15px 25px;
+      border-radius: 10px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+      display: none;
+      animation: slideInRight 0.3s ease;
+      z-index: 1000;
+    }
+
+    @keyframes slideInRight {
+      from {
+        opacity: 0;
+        transform: translateX(100px);
+      }
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+
+    .toast.show {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .toast.success {
+      border-left: 4px solid #4caf50;
+    }
+
+    /* Tips section */
+    .tips {
+      background: #f0f4ff;
+      padding: 20px;
+      border-radius: 10px;
+      margin-top: 20px;
+      border-left: 4px solid #667eea;
+    }
+
+    .tips-title {
+      font-weight: bold;
+      color: #333;
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .tips-list {
+      list-style: none;
+      color: #666;
+      font-size: 0.9rem;
+      line-height: 1.8;
+    }
+
+    .tips-list li {
+      padding-left: 20px;
+      position: relative;
+    }
+
+    .tips-list li:before {
+      content: "→";
+      position: absolute;
+      left: 0;
+      color: #667eea;
+      font-weight: bold;
+    }
+
+    @media (max-width: 480px) {
+      .container {
+        padding: 20px;
+      }
+
+      h1 {
+        font-size: 1.5rem;
+      }
+
+      .stats-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .button-group {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>✍️ Live Character Counter</h1>
+    <p class="subtitle">Type your text and watch the live character count with warnings</p>
+
+    <!-- Warning Messages -->
+    <div id="warningMessage" class="warning-message">
+      <span class="warning-icon"></span>
+      <span id="warningText"></span>
+    </div>
+
+    <!-- Text Input Area -->
+    <div class="textarea-container">
+      <textarea 
+        id="textInput" 
+        placeholder="Start typing here... (Max 100 characters)"
+        maxlength="100"
+      ></textarea>
+    </div>
+
+    <!-- Progress Bar -->
+    <div class="progress-container">
+      <div id="progressBar" class="progress-bar" style="width: 0%"></div>
+    </div>
+
+    <!-- Character Counter Display -->
+    <div id="counterDisplay" class="counter-display">
+      <span class="counter-label">Characters Remaining:</span>
+      <span id="counterValue" class="counter-value">100</span>
+    </div>
+
+    <!-- Statistics Grid -->
+    <div class="stats-grid">
+      <div class="stat-card">
+        <div class="stat-label">Used</div>
+        <div class="stat-value" id="usedCount">0</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-label">Words</div>
+        <div class="stat-value" id="wordCount">0</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-label">Lines</div>
+        <div class="stat-value" id="lineCount">0</div>
+      </div>
+    </div>
+
+    <!-- Action Buttons -->
+    <div class="button-group">
+      <button id="resetButton" class="btn btn-reset">
+        🔄 Reset
+      </button>
+      <button id="copyButton" class="btn btn-copy" disabled>
+        📋 Copy Text
+      </button>
+    </div>
+
+    <!-- Tips Section -->
+    <div class="tips">
+      <div class="tips-title">💡 How it works:</div>
+      <ul class="tips-list">
+        <li>Maximum 100 characters allowed</li>
+        <li>Counter turns <strong style="color: #ffc107;">yellow</strong> at 20 characters remaining</li>
+        <li>Counter turns <strong style="color: #f44336;">red</strong> at 0 characters</li>
+        <li>Further typing is prevented when limit is reached</li>
+        <li>Press Reset to clear everything</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Toast Notification -->
+  <div id="toast" class="toast">
+    <span id="toastMessage"></span>
+  </div>
+
+  <script>
+    "use strict";
+
+    /**
+     * Live Character Counter with Warning Behavior
+     * 
+     * This application demonstrates:
+     * - Real-time character counting
+     * - Dynamic color changes based on remaining characters
+     * - preventDefault() to block typing at limit
+     * - Event listeners for input, keydown, and paste events
+     * - DOM manipulation and CSS class toggling
+     * - Visual feedback and user experience enhancements
+     */
+
+    // ========================================================================
+    // CONFIGURATION
+    // ========================================================================
+
+    const CONFIG = {
+      MAX_CHARACTERS: 100,      // Maximum allowed characters
+      WARNING_THRESHOLD: 20,     // Characters left to trigger warning (yellow)
+      DANGER_THRESHOLD: 0,       // Characters left to trigger danger (red)
+      TOAST_DURATION: 3000       // Toast notification duration (ms)
+    };
+
+    // ========================================================================
+    // DOM REFERENCES
+    // ========================================================================
+
+    const textInput = document.getElementById('textInput');
+    const counterValue = document.getElementById('counterValue');
+    const counterDisplay = document.getElementById('counterDisplay');
+    const progressBar = document.getElementById('progressBar');
+    const usedCount = document.getElementById('usedCount');
+    const wordCount = document.getElementById('wordCount');
+    const lineCount = document.getElementById('lineCount');
+    const resetButton = document.getElementById('resetButton');
+    const copyButton = document.getElementById('copyButton');
+    const warningMessage = document.getElementById('warningMessage');
+    const warningText = document.getElementById('warningText');
+    const toast = document.getElementById('toast');
+    const toastMessage = document.getElementById('toastMessage');
+
+    // ========================================================================
+    // UTILITY FUNCTIONS
+    // ========================================================================
+
+    /**
+     * Show toast notification
+     * @param {string} message - Message to display
+     * @param {string} type - Type of toast (success, error, info)
+     */
+    function showToast(message, type = 'success') {
+      toastMessage.textContent = message;
+      toast.className = `toast ${type} show`;
+
+      setTimeout(() => {
+        toast.classList.remove('show');
+      }, CONFIG.TOAST_DURATION);
+    }
+
+    /**
+     * Count words in text
+     * @param {string} text - Input text
+     * @returns {number} - Word count
+     */
+    function countWords(text) {
+      // Trim and split by whitespace, filter out empty strings
+      return text.trim().split(/\s+/).filter(word => word.length > 0).length;
+    }
+
+    /**
+     * Count lines in text
+     * @param {string} text - Input text
+     * @returns {number} - Line count
+     */
+    function countLines(text) {
+      if (!text.trim()) return 0;
+      return text.split('\n').length;
+    }
+
+    /**
+     * Get status based on remaining characters
+     * @param {number} remaining - Remaining characters
+     * @returns {string} - Status: 'normal', 'warning', or 'danger'
+     */
+    function getStatus(remaining) {
+      if (remaining <= CONFIG.DANGER_THRESHOLD) {
+        return 'danger';
+      } else if (remaining <= CONFIG.WARNING_THRESHOLD) {
+        return 'warning';
+      }
+      return 'normal';
+    }
+
+    /**
+     * Update warning message based on status
+     * @param {string} status - Current status
+     * @param {number} remaining - Remaining characters
+     */
+    function updateWarningMessage(status, remaining) {
+      const icon = warningMessage.querySelector('.warning-icon');
+      
+      warningMessage.classList.remove('show', 'warning-level', 'danger-level');
+
+      if (status === 'warning') {
+        icon.textContent = '⚠️';
+        warningText.textContent = `Warning: Only ${remaining} characters remaining!`;
+        warningMessage.classList.add('show', 'warning-level');
+      } else if (status === 'danger') {
+        icon.textContent = '🚫';
+        warningText.textContent = 'Limit reached! Cannot type more characters.';
+        warningMessage.classList.add('show', 'danger-level');
+      }
+    }
+
+    // ========================================================================
+    // MAIN UPDATE FUNCTION
+    // ========================================================================
+
+    /**
+     * Update all UI elements based on current text
+     * This is the core function that handles all updates
+     */
+    function updateCounter() {
+      const currentLength = textInput.value.length;
+      const remaining = CONFIG.MAX_CHARACTERS - currentLength;
+      const percentage = (currentLength / CONFIG.MAX_CHARACTERS) * 100;
+      const status = getStatus(remaining);
+
+      console.log(`📊 Update: ${currentLength}/${CONFIG.MAX_CHARACTERS} chars | ${remaining} remaining | Status: ${status}`);
+
+      // Update counter display
+      counterValue.textContent = remaining;
+
+      // Update progress bar
+      progressBar.style.width = `${percentage}%`;
+
+      // Update statistics
+      usedCount.textContent = currentLength;
+      wordCount.textContent = countWords(textInput.value);
+      lineCount.textContent = countLines(textInput.value);
+
+      // Remove all status classes first
+      textInput.classList.remove('warning', 'danger');
+      counterValue.classList.remove('warning', 'danger');
+      counterDisplay.classList.remove('warning', 'danger');
+      progressBar.classList.remove('warning', 'danger');
+
+      // Apply status-specific classes
+      if (status === 'warning') {
+        textInput.classList.add('warning');
+        counterValue.classList.add('warning');
+        counterDisplay.classList.add('warning');
+        progressBar.classList.add('warning');
+        console.log('⚠️ WARNING: Approaching character limit!');
+      } else if (status === 'danger') {
+        textInput.classList.add('danger');
+        counterValue.classList.add('danger');
+        counterDisplay.classList.add('danger');
+        progressBar.classList.add('danger');
+        console.log('🚫 DANGER: Character limit reached!');
+      }
+
+      // Update warning message
+      updateWarningMessage(status, remaining);
+
+      // Enable/disable copy button
+      copyButton.disabled = currentLength === 0;
+    }
+
+    // ========================================================================
+    // EVENT HANDLERS
+    // ========================================================================
+
+    /**
+     * Handle input event - fired on every character change
+     * This is the main event for real-time updates
+     */
+    textInput.addEventListener('input', (e) => {
+      console.log('⌨️ Input event fired');
+      updateCounter();
+    });
+
+    /**
+     * Handle keydown event - prevent typing when limit is reached
+     * Uses preventDefault() to block character input
+     */
+    textInput.addEventListener('keydown', (e) => {
+      const currentLength = textInput.value.length;
+      const remaining = CONFIG.MAX_CHARACTERS - currentLength;
+
+      // Allow control keys (backspace, delete, arrows, etc.)
+      const allowedKeys = [
+        'Backspace', 'Delete', 'ArrowLeft', 'ArrowRight', 
+        'ArrowUp', 'ArrowDown', 'Home', 'End', 'Tab'
+      ];
+
+      // Allow Ctrl/Cmd combinations (like Ctrl+A, Ctrl+C, etc.)
+      const isControlKey = e.ctrlKey || e.metaKey;
+
+      // Check if we're at the limit
+      if (remaining <= 0) {
+        // Allow if it's a control key or allowed key or Ctrl combo
+        if (allowedKeys.includes(e.key) || isControlKey) {
+          console.log(`✅ Allowed key at limit: ${e.key}`);
+          return; // Allow the key
+        }
+
+        // Prevent all other keys when at limit
+        console.log(`🚫 Prevented key at limit: ${e.key}`);
+        e.preventDefault();
+        
+        // Show toast notification
+        showToast('Character limit reached!', 'error');
+      }
+    });
+
+    /**
+     * Handle paste event - prevent pasting if it exceeds limit
+     */
+    textInput.addEventListener('paste', (e) => {
+      console.log('📋 Paste event detected');
+      
+      // Get the pasted text from clipboard
+      const pastedText = e.clipboardData.getData('text');
+      const currentLength = textInput.value.length;
+      const availableSpace = CONFIG.MAX_CHARACTERS - currentLength;
+
+      // If pasted text fits, allow it
+      if (pastedText.length <= availableSpace) {
+        console.log(`✅ Paste allowed: ${pastedText.length} chars fit in ${availableSpace} available`);
+        return;
+      }
+
+      // If it doesn't fit, prevent default and manually insert truncated text
+      e.preventDefault();
+      
+      const truncatedText = pastedText.substring(0, availableSpace);
+      const cursorPosition = textInput.selectionStart;
+      
+      // Insert truncated text at cursor position
+      const beforeCursor = textInput.value.substring(0, cursorPosition);
+      const afterCursor = textInput.value.substring(textInput.selectionEnd);
+      
+      textInput.value = beforeCursor + truncatedText + afterCursor;
+      
+      // Set cursor position
+      textInput.selectionStart = textInput.selectionEnd = cursorPosition + truncatedText.length;
+      
+      // Update counter
+      updateCounter();
+      
+      console.log(`⚠️ Paste truncated: ${pastedText.length} → ${truncatedText.length} chars`);
+      showToast(`Pasted text was truncated to fit the limit`, 'info');
+    });
+
+    /**
+     * Handle reset button click - clear all text
+     */
+    resetButton.addEventListener('click', () => {
+      if (textInput.value.length === 0) {
+        showToast('Nothing to reset!', 'info');
+        return;
+      }
+
+      const charCount = textInput.value.length;
+      
+      textInput.value = '';
+      updateCounter();
+      textInput.focus();
+      
+      console.log('🔄 Reset button clicked');
+      showToast(`Cleared ${charCount} characters`, 'success');
+    });
+
+    /**
+     * Handle copy button click - copy text to clipboard
+     */
+    copyButton.addEventListener('click', async () => {
+      try {
+        await navigator.clipboard.writeText(textInput.value);
+        console.log('📋 Text copied to clipboard');
+        showToast('Text copied to clipboard!', 'success');
+      } catch (err) {
+        console.error('❌ Failed to copy:', err);
+        showToast('Failed to copy text', 'error');
+      }
+    });
+
+    /**
+     * Focus textarea when clicking on counter display
+     */
+    counterDisplay.addEventListener('click', () => {
+      textInput.focus();
+    });
+
+    // ========================================================================
+    // KEYBOARD SHORTCUTS
+    // ========================================================================
+
+    /**
+     * Handle keyboard shortcuts
+     * Ctrl+R or Cmd+R: Reset (but prevent page reload)
+     */
+    document.addEventListener('keydown', (e) => {
+      // Ctrl+R or Cmd+R: Reset
+      if ((e.ctrlKey || e.metaKey) && e.key === 'r') {
+        e.preventDefault();
+        resetButton.click();
+      }
+    });
+
+    // ========================================================================
+    // INITIALIZATION
+    // ========================================================================
+
+    console.log('🚀 Live Character Counter initialized');
+    console.log(`📋 Configuration:
+      - Max Characters: ${CONFIG.MAX_CHARACTERS}
+      - Warning Threshold: ${CONFIG.WARNING_THRESHOLD} chars remaining
+      - Danger Threshold: ${CONFIG.DANGER_THRESHOLD} chars remaining
+    `);
+
+    console.log('⚡ Features enabled:
+      - Real-time character counting
+      - Color-coded warnings (yellow → red)
+      - preventDefault() at character limit
+      - Paste handling with truncation
+      - Word and line counting
+      - Copy to clipboard
+      - Keyboard shortcuts (Ctrl+R to reset)
+    ');
+
+    // Initial update
+    updateCounter();
+
+    // Focus the textarea on load
+    textInput.focus();
+
+    // Add sample text for demonstration (optional)
+    // Uncomment to start with sample text:
+    /*
+    textInput.value = 'This is a sample text to demonstrate the character counter.';
+    updateCounter();
+    */
+  </script>
+</body>
+</html>
