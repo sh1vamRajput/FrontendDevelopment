@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic Welcome Page</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .container {
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            padding: 50px;
+            max-width: 600px;
+            width: 100%;
+            text-align: center;
+        }
+
+        .greeting-section {
+            margin-bottom: 30px;
+        }
+
+        #greeting {
+            font-size: 2.5em;
+            color: #667eea;
+            margin-bottom: 15px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        #greeting:hover {
+            transform: scale(1.05);
+        }
+
+        #time-icon {
+            font-size: 4em;
+            margin-bottom: 20px;
+        }
+
+        .welcome-message {
+            background: #f8f9ff;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+            border-left: 4px solid #667eea;
+        }
+
+        .welcome-message h2 {
+            color: #764ba2;
+            margin-bottom: 10px;
+        }
+
+        .welcome-message p {
+            color: #555;
+            line-height: 1.6;
+        }
+
+        .button-group {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin-top: 30px;
+        }
+
+        button {
+            padding: 15px 30px;
+            font-size: 1.1em;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        #changeGreeting {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+
+        #changeGreeting:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 20px rgba(102, 126, 234, 0.4);
+        }
+
+        #toggleMessage {
+            background: #f8f9ff;
+            color: #667eea;
+            border: 2px solid #667eea;
+        }
+
+        #toggleMessage:hover {
+            background: #667eea;
+            color: white;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        footer {
+            margin-top: 30px;
+            color: #999;
+            font-size: 0.9em;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Greeting Section -->
+        <section class="greeting-section">
+            <div id="time-icon">🌅</div>
+            <h1 id="greeting">Good Morning!</h1>
+        </section>
+
+        <!-- Welcome Message (toggleable) -->
+        <div class="welcome-message" id="welcomeMessage">
+            <h2>Welcome to Our Website!</h2>
+            <p>We're delighted to have you here. Explore our content, discover new features, and enjoy your stay with us. Your journey to success starts here!</p>
+        </div>
+
+        <!-- Action Buttons -->
+        <div class="button-group">
+            <button id="changeGreeting">Change Greeting</button>
+            <button id="toggleMessage">Toggle Welcome Message</button>
+        </div>
+
+        <!-- Footer -->
+        <footer>
+            <p>Click the greeting for a surprise! 🎉</p>
+        </footer>
+    </div>
+
+    <!-- jQuery CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <!-- External JavaScript File -->
+    <script src="script.js"></script>
+</body>
+</html>
