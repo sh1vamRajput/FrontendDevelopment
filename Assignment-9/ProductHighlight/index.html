@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Highlight - E-Commerce</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background: #f5f5f5;
+            padding: 20px;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 10px;
+        }
+
+        header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+
+        header p {
+            font-size: 1.2em;
+            opacity: 0.9;
+        }
+
+        .products-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .product-card {
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        /* Highlighted state when clicked */
+        .product-card.highlighted {
+            background: linear-gradient(135deg, #ffeaa7 0%, #fdcb6e 100%);
+            border: 3px solid #f39c12;
+        }
+
+        /* Selected/Favorite state */
+        .product-card.selected {
+            border: 3px solid #e74c3c;
+        }
+
+        .product-card.selected .favorite-icon {
+            color: #e74c3c;
+        }
+
+        .product-image {
+            width: 100%;
+            height: 200px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 5em;
+            margin-bottom: 15px;
+            background: #f8f9fa;
+            border-radius: 10px;
+        }
+
+        .product-info {
+            position: relative;
+        }
+
+        .product-name {
+            font-size: 1.5em;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .product-price {
+            font-size: 1.8em;
+            color: #667eea;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .original-price {
+            text-decoration: line-through;
+            color: #999;
+            font-size: 0.8em;
+            margin-left: 10px;
+        }
+
+        .discount-badge {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: #e74c3c;
+            color: white;
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-weight: bold;
+            font-size: 0.9em;
+        }
+
+        .stock-badge {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background: #95a5a6;
+            color: white;
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-weight: bold;
+            font-size: 0.9em;
+        }
+
+        /* Additional details shown on hover */
+        .product-details {
+            display: none;
+            background: #ecf0f1;
+            padding: 15px;
+            border-radius: 10px;
+            margin-top: 15px;
+            border-left: 4px solid #667eea;
+        }
+
+        .product-details h3 {
+            color: #667eea;
+            margin-bottom: 8px;
+        }
+
+        .product-details p {
+            color: #555;
+            line-height: 1.6;
+            font-size: 0.95em;
+        }
+
+        .favorite-icon {
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            font-size: 2em;
+            color: #ddd;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            z-index: 10;
+        }
+
+        .favorite-icon:hover {
+            transform: scale(1.2);
+        }
+
+        .add-to-cart {
+            width: 100%;
+            padding: 12px;
+            background: #667eea;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.1em;
+            cursor: pointer;
+            margin-top: 15px;
+            transition: all 0.3s ease;
+            font-weight: bold;
+        }
+
+        .add-to-cart:hover {
+            background: #764ba2;
+        }
+
+        .add-to-cart:disabled {
+            background: #95a5a6;
+            cursor: not-allowed;
+        }
+
+        /* Special styling for discounted products using attribute selector */
+        .product-card[data-discount] {
+            border: 2px dashed #e74c3c;
+        }
+
+        .product-card[data-discount] .product-price {
+            color: #e74c3c;
+        }
+
+        /* Out of stock styling */
+        .product-card[data-stock="false"] {
+            opacity: 0.7;
+        }
+
+        .product-card[data-stock="false"] .product-image {
+            filter: grayscale(100%);
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 50px;
+            color: #666;
+            font-size: 0.95em;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>🛍️ Featured Products</h1>
+        <p>Hover for details • Click to highlight • ❤️ to favorite</p>
+    </header>
+
+    <main class="products-container">
+        <!-- Product 1: Regular product in stock -->
+        <article class="product-card" data-stock="true" data-id="1">
+            <div class="product-image">💻</div>
+            <div class="product-info">
+                <h2 class="product-name">Premium Laptop</h2>
+                <p class="product-price">$1,299</p>
+                <div class="product-details">
+                    <h3>Product Details</h3>
+                    <p>High-performance laptop with 16GB RAM, 512GB SSD, and stunning 15.6" display. Perfect for professionals and creators.</p>
+                </div>
+                <button class="add-to-cart">Add to Cart</button>
+                <span class="favorite-icon">♡</span>
+            </div>
+        </article>
+
+        <!-- Product 2: Discounted product -->
+        <article class="product-card" data-stock="true" data-discount="30" data-id="2">
+            <div class="discount-badge">30% OFF</div>
+            <div class="product-image">📱</div>
+            <div class="product-info">
+                <h2 class="product-name">Smartphone Pro</h2>
+                <p class="product-price">
+                    $699
+                    <span class="original-price">$999</span>
+                </p>
+                <div class="product-details">
+                    <h3>Product Details</h3>
+                    <p>Latest flagship smartphone with 5G connectivity, triple camera system, and all-day battery life. Limited time offer!</p>
+                </div>
+                <button class="add-to-cart">Add to Cart</button>
+                <span class="favorite-icon">♡</span>
+            </div>
+        </article>
+
+        <!-- Product 3: Out of stock product -->
+        <article class="product-card" data-stock="false" data-id="3">
+            <div class="stock-badge">Out of Stock</div>
+            <div class="product-image">🎧</div>
+            <div class="product-info">
+                <h2 class="product-name">Wireless Headphones</h2>
+                <p class="product-price">$299</p>
+                <div class="product-details">
+                    <h3>Product Details</h3>
+                    <p>Premium noise-canceling headphones with 30-hour battery life. Currently unavailable but coming back soon!</p>
+                </div>
+                <button class="add-to-cart" disabled>Out of Stock</button>
+                <span class="favorite-icon">♡</span>
+            </div>
+        </article>
+
+        <!-- Product 4: Discounted product in stock -->
+        <article class="product-card" data-stock="true" data-discount="15" data-id="4">
+            <div class="discount-badge">15% OFF</div>
+            <div class="product-image">⌚</div>
+            <div class="product-info">
+                <h2 class="product-name">Smart Watch</h2>
+                <p class="product-price">
+                    $339
+                    <span class="original-price">$399</span>
+                </p>
+                <div class="product-details">
+                    <h3>Product Details</h3>
+                    <p>Track your fitness, monitor health metrics, and stay connected with this advanced smartwatch featuring GPS and heart rate monitor.</p>
+                </div>
+                <button class="add-to-cart">Add to Cart</button>
+                <span class="favorite-icon">♡</span>
+            </div>
+        </article>
+
+        <!-- Product 5: Regular product -->
+        <article class="product-card" data-stock="true" data-id="5">
+            <div class="product-image">📷</div>
+            <div class="product-info">
+                <h2 class="product-name">Digital Camera</h2>
+                <p class="product-price">$849</p>
+                <div class="product-details">
+                    <h3>Product Details</h3>
+                    <p>Professional mirrorless camera with 24MP sensor, 4K video recording, and weather-sealed body. Perfect for photography enthusiasts.</p>
+                </div>
+                <button class="add-to-cart">Add to Cart</button>
+                <span class="favorite-icon">♡</span>
+            </div>
+        </article>
+
+        <!-- Product 6: Out of stock with discount -->
+        <article class="product-card" data-stock="false" data-discount="25" data-id="6">
+            <div class="discount-badge">25% OFF</div>
+            <div class="stock-badge">Out of Stock</div>
+            <div class="product-image">🖥️</div>
+            <div class="product-info">
+                <h2 class="product-name">4K Monitor</h2>
+                <p class="product-price">
+                    $449
+                    <span class="original-price">$599</span>
+                </p>
+                <div class="product-details">
+                    <h3>Product Details</h3>
+                    <p>Ultra-sharp 27-inch 4K display with HDR support and 144Hz refresh rate. High demand item - restocking soon!</p>
+                </div>
+                <button class="add-to-cart" disabled>Out of Stock</button>
+                <span class="favorite-icon">♡</span>
+            </div>
+        </article>
+    </main>
+
+    <footer>
+        <p>© 2024 E-Commerce Store | Click products to highlight | Try clicking out-of-stock items!</p>
+    </footer>
+
+    <!-- jQuery CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <!-- External JavaScript File -->
+    <script src="product-script.js"></script>
+</body>
+</html>
