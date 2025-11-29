@@ -1,0 +1,46 @@
+{
+  "employees": [
+    {
+      "id": 1,
+      "name": "Sarah Johnson",
+      "status": "active",
+      "department": "Engineering",
+      "position": "Senior Developer"
+    },
+    {
+      "id": 2,
+      "name": "Michael Chen",
+      "status": "inactive",
+      "department": "Marketing",
+      "position": "Marketing Manager"
+    },
+    {
+      "id": 3,
+      "name": "Emily Rodriguez",
+      "status": "active",
+      "department": "Human Resources",
+      "position": "HR Specialist"
+    },
+    {
+      "id": 4,
+      "name": "James Williams",
+      "status": "active",
+      "department": "Sales",
+      "position": "Sales Director"
+    },
+    {
+      "id": 5,
+      "name": "Lisa Anderson",
+      "status": "inactive",
+      "department": "Finance",
+      "position": "Financial Analyst"
+    },
+    {
+      "id": 6,
+      "name": "David Thompson",
+      "status": "active",
+      "department": "Engineering",
+      "position": "DevOps Engineer"
+    }
+  ]
+}
